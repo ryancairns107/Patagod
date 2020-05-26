@@ -14,7 +14,7 @@ public class CompetitionManager : MonoBehaviour
     {
         BaseAI[] aiArray = new BaseAI[] {
             new IljaAI(), 
-            new PondAI(), 
+            new PataAI(), 
             new PondAI(), 
             new PondAI()
         };
