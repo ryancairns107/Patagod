@@ -1058,7 +1058,7 @@ GameObject:
   - component: {fileID: 5822999358464358932}
   - component: {fileID: 5822999358464358930}
   - component: {fileID: 5822999358464358931}
-  - component: {fileID: 6351053546992951970}
+  - component: {fileID: 3522337097308992789}
   - component: {fileID: 5822999358464358929}
   - component: {fileID: 5822999358464358928}
   m_Layer: 0
@@ -1156,7 +1156,7 @@ CapsuleCollider:
   m_Height: 3.0797348
   m_Direction: 2
   m_Center: {x: -0.008166678, y: -0.111345105, z: 0.35837927}
---- !u!114 &6351053546992951970
+--- !u!114 &3522337097308992789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1165,9 +1165,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5822999358464358922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a80532f44bfa2400c8e81da23b5d12aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 163737564737f207164716f207164716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 5822999358464358932}
+  x: 0
+  z: 0
+  ifMoving: 0
 --- !u!198 &5822999358464358929
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5902,7 +5906,7 @@ GameObject:
   - component: {fileID: 5822999358517109848}
   - component: {fileID: 5822999358517109849}
   - component: {fileID: 5822999358517109850}
-  - component: {fileID: 5822999358517109851}
+  - component: {fileID: 5455199116085796658}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Trigger
@@ -5984,7 +5988,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5822999358517109851
+--- !u!114 &5455199116085796658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5993,18 +5997,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5822999358517109853}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267c2a34a25963145b6680d034ff780c, type: 3}
+  m_Script: {fileID: 11500000, guid: 578b28ce86b2e40ceba79d3c559052a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: 0
-  ischeck: 0
-  lookout: {fileID: 5822999358697505075}
-  CannonBallPrefab: {fileID: 2501402490172963987, guid: 6cf9d983923f144efbcd7c98b8ec1870,
-    type: 3}
-  CannonBackSpawnPoint: {fileID: 5822999358456816323}
-  CannonLeftSpawnPoint: {fileID: 5822999359898194422}
-  CannonRightSpawnPoint: {fileID: 5822999359910384656}
-  rounds: 0
+  AIscript: {fileID: 3522337097308992789}
 --- !u!1 &5822999358522819073
 GameObject:
   m_ObjectHideFlags: 0
