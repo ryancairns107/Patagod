@@ -49,7 +49,7 @@ public class Aistest : MonoBehaviour
     // Update is called once per frame
 
    
-    void Update()
+    void FixedUpdate()
     {
 
        if (currentHealth <= 0)

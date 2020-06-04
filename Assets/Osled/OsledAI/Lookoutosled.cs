@@ -21,7 +21,7 @@ public class Lookoutosled : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         ischeck = lookout.GetComponent<Transform>().localRotation.eulerAngles.y;
 
