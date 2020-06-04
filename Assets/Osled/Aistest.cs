@@ -126,11 +126,7 @@ public class Aistest : MonoBehaviour
            // Teep = transform.right;
            // transform.Rotate(transform.up * Time.deltaTime * rotspeed);
         }
-        else if (i == 3)
-        {
-           // Teep = -transform.right;
-           // transform.Rotate(transform.up * Time.deltaTime * -rotspeed);
-        }
+        
         return Teep;
 
 
