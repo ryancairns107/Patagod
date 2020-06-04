@@ -59,6 +59,7 @@ public class Lookoutosled : MonoBehaviour
     public IEnumerator __FireFront(float power)
     {
         GameObject newInstance = Instantiate(CannonBallPrefab, CannonBackSpawnPoint.position, CannonBackSpawnPoint.rotation);
+        CannonBallPrefab.name = "OsledCannon";
         yield return new WaitForFixedUpdate();
         rounds += 1;
     }
@@ -66,6 +67,7 @@ public class Lookoutosled : MonoBehaviour
     public IEnumerator __FireLeft(float power)
     {
         GameObject newInstance = Instantiate(CannonBallPrefab, CannonLeftSpawnPoint.position, CannonLeftSpawnPoint.rotation);
+        CannonBallPrefab.name = "OsledCannon";
         yield return new WaitForFixedUpdate();
         rounds += 1;
     }
@@ -73,6 +75,7 @@ public class Lookoutosled : MonoBehaviour
     public IEnumerator __FireRight(float power)
     {
         GameObject newInstance = Instantiate(CannonBallPrefab, CannonRightSpawnPoint.position, CannonRightSpawnPoint.rotation);
+        CannonBallPrefab.name = "OsledCannon";
         yield return new WaitForFixedUpdate();
         rounds += 1;
     }

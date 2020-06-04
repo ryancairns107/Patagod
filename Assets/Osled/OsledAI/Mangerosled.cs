@@ -1,18 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Mangerosled : MonoBehaviour
 {
     public GameObject[] PirateShipPrefab ;
     public Transform[] SpawnPoints = null;
+    public shiphealth healthBar;
+    public shiphealth healthBar1;
+    public shiphealth healthBar2;
+    public shiphealth healthBar3;
+    public float Osledhealth;
+    public float Patahealth;
+    public float Jeroenhealth;
+    public float Ryanhealth;
+    public float OsledDeath;
+    public float PataDeath;
+    public float RyanDeath;
+    public float JeroenDeath;
 
-  
 
     // Start is called before the first frame update
     void Start()
     {
-    
+       
 
         for (int i = 0; i < 4; i++)
         {
@@ -20,12 +33,42 @@ public class Mangerosled : MonoBehaviour
          
            
         }
+        healthBar = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
+        healthBar1 = GameObject.Find("PataShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
+        healthBar2 = GameObject.Find("JeroenShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
+        healthBar3 = GameObject.Find("RyanShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-    
+       
+        Osledhealth = healthBar.health;
+        Patahealth = healthBar1.health;
+        Jeroenhealth = healthBar2.health;
+        Ryanhealth = healthBar3.health;
+        if (Osledhealth <=0)
+        {
+            OsledDeath+=1;
+            Osledhealth = 100;
+        }
+        if (Patahealth <= 0)
+        {
+            PataDeath += 1;
+            Patahealth = 100;
+        }
+        if (Jeroenhealth <= 0)
+        {
+            JeroenDeath += 1;
+            Jeroenhealth = 100;
+        }
+        if (Ryanhealth <= 0)
+        {
+            RyanDeath += 1;
+            Ryanhealth = 100;
+        }
+
     }
+  
 }
