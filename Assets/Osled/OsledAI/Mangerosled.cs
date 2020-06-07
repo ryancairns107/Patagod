@@ -1,43 +1,74 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Mangerosled : MonoBehaviour
 {
-    public GameObject PirateShipPrefab = null;
+    public GameObject[] PirateShipPrefab ;
     public Transform[] SpawnPoints = null;
+    public shiphealth healthBar;
+    public shiphealth healthBar1;
+    public shiphealth healthBar2;
+    public shiphealth healthBar3;
+    public float Osledhealth;
+    public float Patahealth;
+    public float Jeroenhealth;
+    public float Ryanhealth;
+    public float OsledDeath;
+    public float PataDeath;
+    public float RyanDeath;
+    public float JeroenDeath;
 
-    private List<Pirateshiposledcontroller> pirateShips = new List<Pirateshiposledcontroller>();
 
     // Start is called before the first frame update
     void Start()
     {
-        OslledbaseAI[] aiArray = new OslledbaseAI[] {
-            new OsledAI(),
-            new OsledAI(),
-            new OsledAI(),
-            new OsledAI()
-        };
+       
 
         for (int i = 0; i < 4; i++)
         {
-            GameObject pirateShip = Instantiate(PirateShipPrefab, SpawnPoints[i].position, SpawnPoints[i].rotation);
-            Pirateshiposledcontroller pirateShipController = pirateShip.GetComponent<Pirateshiposledcontroller>();
-            pirateShipController.SetAI(aiArray[i]);
-            pirateShips.Add(pirateShipController);
+            GameObject pirateShip = Instantiate(PirateShipPrefab[i], SpawnPoints[i].position, SpawnPoints[i].rotation);
+         
+           
         }
+        healthBar = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
+        healthBar1 = GameObject.Find("PataShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
+        healthBar2 = GameObject.Find("JeroenShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
+        healthBar3 = GameObject.Find("RyanShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
 
     }
-
+ 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+       
+        Osledhealth = healthBar.health;
+        Patahealth = healthBar1.health;
+        Jeroenhealth = healthBar2.health;
+        Ryanhealth = healthBar3.health;
+        if (Osledhealth <=0)
         {
-            foreach (var pirateShip in pirateShips)
-            {
-                pirateShip.StartBattle();
-            }
+            OsledDeath+=1;
+            Osledhealth = 100;
         }
+        if (Patahealth <= 0)
+        {
+            PataDeath += 1;
+            Patahealth = 100;
+        }
+        if (Jeroenhealth <= 0)
+        {
+            JeroenDeath += 1;
+            Jeroenhealth = 100;
+        }
+        if (Ryanhealth <= 0)
+        {
+            RyanDeath += 1;
+            Ryanhealth = 100;
+        }
+
     }
+  
 }

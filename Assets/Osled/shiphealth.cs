@@ -10,8 +10,13 @@ public class shiphealth : MonoBehaviour
 	public Gradient gradient;
 	public Image fill;
 	public int startvalue;
+	public float health;
+     void Update()
+    {
+		health = slider.value;
 
-	public void SetMaxHealth(int health)
+	}
+    public void SetMaxHealth(int health)
 	{
 		slider.maxValue = health;
 		slider.minValue = 0;

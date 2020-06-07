@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Trigger
   - Boat
+  - Boatbody
+  - canon
+  - Destroyed
+  - Health
+  - Ammo
   layers:
   - Default
   - TransparentFX
@@ -16,7 +21,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - Wall
   - 
   - 
   - 
