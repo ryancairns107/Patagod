@@ -1171,7 +1171,9 @@ MonoBehaviour:
   agent: {fileID: 5822999358464358932}
   x: 0
   z: 0
-  ifMoving: 0
+  enemy: 0
+  cannon: 0
+  rock: 0
 --- !u!198 &5822999358464358929
 ParticleSystem:
   m_ObjectHideFlags: 0

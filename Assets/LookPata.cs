@@ -6,11 +6,25 @@ public class LookPata : MonoBehaviour
 {
     public PataAI AIscript;
 
-    private void OnTriggerEnter(Collider col)
+    void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.CompareTag("Boatbody"))
         {
-           AIscript.agent.destination = new Vector3(50, 0, 0);
+            AIscript.enemy = true;
+        }else if (col.gameObject.CompareTag("canon"))
+        {
+            AIscript.canon = true;
+        }
+    }
+    void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.CompareTag("Boatbody"))
+        {
+            AIscript.enemy = false;
+        }
+        else if (col.gameObject.CompareTag("canon"))
+        {
+            AIscript.canon = false;
         }
     }
 }

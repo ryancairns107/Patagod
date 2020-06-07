@@ -1092,6 +1092,12 @@ Transform:
   m_Father: {fileID: 2125127853}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1087081509 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2987455128124713744, guid: c3545b315445dac47894474cf20278d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 409305573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1108893060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1396,6 +1402,12 @@ Transform:
   m_Father: {fileID: 2125127853}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1561607085 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2987455128124713744, guid: c3545b315445dac47894474cf20278d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 528975935}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1606057765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,6 +1500,12 @@ Transform:
   m_Father: {fileID: 1072813412}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &1646262462 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2987455128124713744, guid: c3545b315445dac47894474cf20278d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2987455128663906625}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1724133243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2134,6 +2152,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3522337097308992789, guid: 09d1c4e5ad50a49209f1139447d377e8,
+        type: 3}
+      propertyPath: approach.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522337097308992789, guid: 09d1c4e5ad50a49209f1139447d377e8,
+        type: 3}
+      propertyPath: approach
+      value: 
+      objectReference: {fileID: 1646262462}
+    - target: {fileID: 3522337097308992789, guid: 09d1c4e5ad50a49209f1139447d377e8,
+        type: 3}
+      propertyPath: approach.Array.data[0]
+      value: 
+      objectReference: {fileID: 1646262462}
+    - target: {fileID: 3522337097308992789, guid: 09d1c4e5ad50a49209f1139447d377e8,
+        type: 3}
+      propertyPath: approach.Array.data[1]
+      value: 
+      objectReference: {fileID: 1087081509}
+    - target: {fileID: 3522337097308992789, guid: 09d1c4e5ad50a49209f1139447d377e8,
+        type: 3}
+      propertyPath: approach.Array.data[2]
+      value: 
+      objectReference: {fileID: 1561607085}
     - target: {fileID: 5822999358464358922, guid: 09d1c4e5ad50a49209f1139447d377e8,
         type: 3}
       propertyPath: m_Name
