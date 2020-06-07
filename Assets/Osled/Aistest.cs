@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class Aistest : MonoBehaviour
 {
@@ -29,12 +31,26 @@ public class Aistest : MonoBehaviour
     private Rigidbody rb;
     public float moveforce = 0f;
     public GameObject Lookout = null;
-    private float RotationSpeed = 180.0f;
+    private float RotationSpeed = 180f;
     private ParticleSystem particles ;
+    public int death;
+    public int kill;
+    public Text textdeath;
+    public Text textkill;
+    public int healthback;
+    [SerializeField]
+    Transform _distanitionG;
+    [SerializeField]
+    Transform _distanitionB;
+    NavMeshAgent _navMeshAgent;
+    public Lookoutosled cannons;
+    public bool gotoammoo;
+    public bool gotohealth;
 
     // Start is called before the first frame update
     void Start()
     {
+       
         rb = GetComponent<Rigidbody>();
         moved = chose();
         currentHealth = 100;
@@ -47,19 +63,61 @@ public class Aistest : MonoBehaviour
     }
 
     // Update is called once per frame
-
-   
-    void FixedUpdate()
+     void Update()
     {
 
+        cannons = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Lookout/Sphere").GetComponent<Lookoutosled>();
+        _navMeshAgent = this.GetComponent<NavMeshAgent>();
+        textdeath = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Canvas/death/deathcount").GetComponent<Text>();
+        textdeath.text = ""+death;
+        if (currentHealth == 20f && gotoammoo ==false)
+        {
+            gotohealth =true;
+           
+            setdis();
+        }
+        if (cannons.cannons == 10f&&  gotohealth == false)
+        {
+            gotoammoo = true;
+            gotoammo();
+        }
+    }
+     void setdis()
+    {
+        if (gotohealth == true)
+        {
+          
+            _distanitionG = GameObject.FindWithTag("Ammo").transform;
+            Vector3 targetve = _distanitionG.transform.position;
+            _navMeshAgent.SetDestination(targetve);
+         
+        }
+      
+
+    }
+     void gotoammo()
+    {
+        if (gotoammoo == true)
+        {
+            _distanitionB = GameObject.FindWithTag("Ammo").transform;
+            Vector3 targetve = _distanitionB.transform.position;
+            _navMeshAgent.SetDestination(targetve);
+        }
+      
+
+    }
+    void FixedUpdate()
+    {
+       
        if (currentHealth <= 0)
         {
-            gameObject.tag = "Destroyed";
+            //gameObject.tag = "Destroyed";
             movespeed = 0f;
             rotspeed = 0f;
             moveforce = 0f;
             RotationSpeed = 0f;
             particles.Play();
+            
 
         }
         if (ischeck == false)
@@ -73,8 +131,19 @@ public class Aistest : MonoBehaviour
         rb.velocity = moved * moveforce;
         if (Physics.Raycast(transform.position, transform.forward, maxdis, hmm))
         {
-            moved = chose();
-            transform.rotation = Quaternion.LookRotation(moved);
+            // moved = chose();
+            // transform.rotation = Quaternion.LookRotation(moved);
+            int rotLorR = Random.Range(1, 10);
+            if(rotLorR == 1)
+            {
+                transform.Rotate(transform.up  * 90);
+            }
+            if (rotLorR == 5)
+            {
+                transform.Rotate(transform.up *  -90);
+            }
+
+          
         }
             if (iswalk == false)
         {
@@ -177,9 +246,9 @@ public class Aistest : MonoBehaviour
     }
     IEnumerator wandr()
     {
-        int rotime = Random.Range(1, 5);
-        int rotwait = Random.Range(3, 10);
-        int rotLorR = Random.Range(1, 3);
+        int rotime = Random.Range(1, 3);
+        int rotwait = Random.Range(1, 3);
+        int rotLorR = Random.Range(1, 10);
         int walkwait = Random.Range(3,10);
         int Walktime = Random.Range(1, 5);
 
@@ -188,8 +257,8 @@ public class Aistest : MonoBehaviour
         yield return new WaitForSeconds(walkwait);
         iswalk = true;
         yield return new WaitForSeconds(Walktime);
-        iswalk = false;
-        yield return new WaitForSeconds(rotwait);
+       iswalk = false;
+       yield return new WaitForSeconds(rotwait);
         if (rotLorR== 1){
             isrotr = true;
             yield return new WaitForSeconds(rotime);
@@ -201,7 +270,9 @@ public class Aistest : MonoBehaviour
             yield return new WaitForSeconds(rotime);
             isrotl = false;
         }
+        
         iswand = false;
+        yield return new WaitForFixedUpdate();
     }
     public IEnumerator __TurnLookoutLeft(float angle)
     {
@@ -235,6 +306,11 @@ public class Aistest : MonoBehaviour
         currentHealth += damage;
 
         healthBar.SetHealth(currentHealth);
+        if(currentHealth <= 0)
+        {
+            currentHealth = 100;
+            death += 1;
+        }
     }
     
     void OnTriggerEnter(Collider other)
@@ -249,7 +325,19 @@ public class Aistest : MonoBehaviour
             TakeDamage(D);
             Debug.Log("braceee");
         }
+
+        if (other.gameObject.tag == "Health")
+        {
+            currentHealth += healthback;
+        }
+
+      
+
+
+
     }
-  
+
+   
+
 
 }

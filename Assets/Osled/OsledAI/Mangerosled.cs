@@ -39,7 +39,7 @@ public class Mangerosled : MonoBehaviour
         healthBar3 = GameObject.Find("RyanShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
 
     }
-
+ 
     // Update is called once per frame
     void FixedUpdate()
     {
