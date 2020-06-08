@@ -129,7 +129,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8487527656895139047}
-  - component: {fileID: 8487527656895139046}
   m_Layer: 0
   m_Name: CompetitionManager
   m_TagString: Untagged
@@ -155,22 +154,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8487527656895139046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8487527656895139049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d738c66033dc54bfcae667ec6b77834f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PirateShipPrefab: {fileID: 7222537879436563100, guid: 94110ca0e17004efabeabf32fc70e56d,
-    type: 3}
-  SpawnPoints:
-  - {fileID: 8771772981144662787}
-  - {fileID: 2481412349284476679}
-  - {fileID: 8833215302825460878}
-  - {fileID: 270430813387700006}
