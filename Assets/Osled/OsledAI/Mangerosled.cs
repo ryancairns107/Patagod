@@ -20,12 +20,14 @@ public class Mangerosled : MonoBehaviour
     public float PataDeath;
     public float RyanDeath;
     public float JeroenDeath;
+    public float GameTimer;
+    public GameObject board;
 
 
     // Start is called before the first frame update
     void Start()
     {
-       
+       // board= GameObject.Find("CompetitionManager/Canvas");
 
         for (int i = 0; i < 4; i++)
         {
@@ -39,11 +41,18 @@ public class Mangerosled : MonoBehaviour
         healthBar3 = GameObject.Find("RyanShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
 
     }
- 
+    void Update()
+    {
+        if (GameTimer <= 0)
+        {
+            board.SetActive(true);
+            Time.timeScale = 0F;
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
-       
+        GameTimer -=Time.deltaTime;
         Osledhealth = healthBar.health;
         Patahealth = healthBar1.health;
         Jeroenhealth = healthBar2.health;
@@ -68,6 +77,7 @@ public class Mangerosled : MonoBehaviour
             RyanDeath += 1;
             Ryanhealth = 100;
         }
+     
 
     }
   

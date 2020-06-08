@@ -4698,8 +4698,6 @@ MonoBehaviour:
   rounds: 0
   maxrounds: 1
   cannons: 20
-  textdeath: {fileID: 0}
-  textkill: {fileID: 0}
 --- !u!1 &2987455128124713740
 GameObject:
   m_ObjectHideFlags: 0
@@ -4852,7 +4850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   D: -5
   maxHealth: 100
-  currentHealth: 100
+  currentHealth: 10
   healthBar: {fileID: 2987455128680054832}
   sails:
   - {fileID: 2987455128574076948}
@@ -4870,6 +4868,15 @@ MonoBehaviour:
   moveforce: 50
   Lookout: {fileID: 2987455127896231989}
   death: 0
+  kill: 0
+  textdeath: {fileID: 0}
+  textkill: {fileID: 0}
+  healthback: 20
+  _distanitionG: {fileID: 0}
+  _distanitionB: {fileID: 0}
+  cannons: {fileID: 0}
+  gotoammoo: 0
+  gotohealth: 0
 --- !u!136 &2987455128124713749
 CapsuleCollider:
   m_ObjectHideFlags: 0

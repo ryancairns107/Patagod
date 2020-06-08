@@ -11,6 +11,7 @@ public class Spawnitems : MonoBehaviour
     public GameObject ammobottle;
     public GameObject healthbottle1;
     public GameObject ammobottle1;
+    public float timer = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,13 +26,20 @@ public class Spawnitems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         healthbottle = GameObject.Find("bottleLarge(Clone)");
         ammobottle = GameObject.Find("bottle(Clone)");
         healthbottle1 = GameObject.Find("bottle(Clone)");
         ammobottle1 = GameObject.Find("bottleLarge(Clone)");
         if (healthbottle == null && healthbottle1 == null && ammobottle == null && ammobottle1 == null )
         {
-            spawn();
+            timer -= Time.deltaTime;
+            if(timer <= 0)
+            {
+                spawn();
+                timer = 10;
+            }
+            
         }
     }
    public void spawn()
