@@ -1016,7 +1016,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3571431248416543580}
   - component: {fileID: 3571431248416543581}
-  - component: {fileID: 8560800014118761114}
   m_Layer: 0
   m_Name: CompetitionManager
   m_TagString: Untagged
@@ -1079,25 +1078,6 @@ MonoBehaviour:
   JeroenDeath: 0
   GameTimer: 10
   board: {fileID: 3571431249053698499}
---- !u!114 &8560800014118761114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3571431248416543582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c50057d5ab050b448a295ec5b7fbd8a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PirateShipPrefab: []
-  SpawnPoints: []
-  healthbottle: {fileID: 0}
-  ammobottle: {fileID: 0}
-  healthbottle1: {fileID: 0}
-  ammobottle1: {fileID: 0}
-  timer: 10
 --- !u!1 &3571431248448040355
 GameObject:
   m_ObjectHideFlags: 0
