@@ -18,8 +18,8 @@ public class Mangerosled : MonoBehaviour
     public float Ryanhealth;
     public float OsledDeath;
     public float PataDeath;
-    public float RyanDeath;
-    public float JeroenDeath;
+    //public float RyanDeath;
+   // public float JeroenDeath;
     public float GameTimer;
     public GameObject board;
 
@@ -37,8 +37,8 @@ public class Mangerosled : MonoBehaviour
         }
         healthBar = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
         healthBar1 = GameObject.Find("PataShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
-        healthBar2 = GameObject.Find("JeroenShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
-        healthBar3 = GameObject.Find("RyanShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
+      //  healthBar2 = GameObject.Find("JeroenShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
+      //  healthBar3 = GameObject.Find("RyanShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
 
     }
     void Update()
@@ -55,8 +55,8 @@ public class Mangerosled : MonoBehaviour
         GameTimer -=Time.deltaTime;
         Osledhealth = healthBar.health;
         Patahealth = healthBar1.health;
-        Jeroenhealth = healthBar2.health;
-        Ryanhealth = healthBar3.health;
+        //Jeroenhealth = healthBar2.health;
+       // Ryanhealth = healthBar3.health;
         if (Osledhealth <=0)
         {
             OsledDeath+=1;
@@ -69,12 +69,12 @@ public class Mangerosled : MonoBehaviour
         }
         if (Jeroenhealth <= 0)
         {
-            JeroenDeath += 1;
+           //JeroenDeath += 1;
             Jeroenhealth = 100;
         }
         if (Ryanhealth <= 0)
         {
-            RyanDeath += 1;
+           // RyanDeath += 1;
             Ryanhealth = 100;
         }
      
