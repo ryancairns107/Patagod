@@ -527,12 +527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e574f746770a74bb1d6397392e7ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &515903533 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2481412349284476679, guid: 511990faeaadf4428964da901f8ee2fb,
-    type: 3}
-  m_PrefabInstance: {fileID: 1784649766}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &598341845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -852,12 +846,6 @@ Transform:
   m_Father: {fileID: 412518424}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &983538136 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8771772981144662787, guid: 511990faeaadf4428964da901f8ee2fb,
-    type: 3}
-  m_PrefabInstance: {fileID: 1784649766}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &984500488 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: b14eb9763d80bd4488e6384fc210925d,
@@ -1268,12 +1256,6 @@ Transform:
   m_Father: {fileID: 966107633}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1229810884 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8833215302825460878, guid: 511990faeaadf4428964da901f8ee2fb,
-    type: 3}
-  m_PrefabInstance: {fileID: 1784649766}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1461062608 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: b14eb9763d80bd4488e6384fc210925d,
@@ -1521,6 +1503,23 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 11.3
       objectReference: {fileID: 0}
+    - target: {fileID: 3571431248416543580, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571431248416543581, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: PirateShipPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 6071348214978867989, guid: ef2ed8413ca581b4d97f069a5c258df6,
+        type: 3}
+    - target: {fileID: 3571431248416543581, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: PirateShipPrefab.Array.data[3]
+      value: 
+      objectReference: {fileID: 7656282176022533998, guid: e6c16c21fff769c49b9a8c6b6cf217e4,
+        type: 3}
     - target: {fileID: 8487527656895139047, guid: 511990faeaadf4428964da901f8ee2fb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1580,6 +1579,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CompetitionManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560800014118761114, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: SpawnPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560800014118761114, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: PirateShipPrefab.Array.size
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8487527656895139046, guid: 511990faeaadf4428964da901f8ee2fb, type: 3}
@@ -1761,12 +1770,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2f7309888211df45ade7a4dbab6434c, type: 3}
---- !u!4 &1886416239 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 270430813387700006, guid: 511990faeaadf4428964da901f8ee2fb,
-    type: 3}
-  m_PrefabInstance: {fileID: 1784649766}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1914716053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2192,43 +2195,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1984054302}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2143720451 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8487527656895139049, guid: 511990faeaadf4428964da901f8ee2fb,
-    type: 3}
-  m_PrefabInstance: {fileID: 1784649766}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2143720452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143720451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b98d4397fa4ae44872e07633787e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PirateShipPrefab:
-  - {fileID: 2987455128124713740, guid: c3545b315445dac47894474cf20278d5, type: 3}
-  - {fileID: 7840292162145636980, guid: 0c6c574d3bb224a979bb2789006f83c9, type: 3}
-  - {fileID: 7656282176022533998, guid: e6c16c21fff769c49b9a8c6b6cf217e4, type: 3}
-  - {fileID: 6071348214978867989, guid: ef2ed8413ca581b4d97f069a5c258df6, type: 3}
-  SpawnPoints:
-  - {fileID: 983538136}
-  - {fileID: 515903533}
-  - {fileID: 1229810884}
-  - {fileID: 1886416239}
-  healthBar: {fileID: 0}
-  healthBar1: {fileID: 0}
-  healthBar2: {fileID: 0}
-  healthBar3: {fileID: 0}
-  Osledhealth: 0
-  Patahealth: 0
-  Jeroenhealth: 0
-  Ryanhealth: 0
-  OsledDeath: 0
-  PataDeath: 0
-  RyanDeath: 0
-  JeroenDeath: 0
