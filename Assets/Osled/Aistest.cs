@@ -57,7 +57,12 @@ public class Aistest : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         particles = GetComponentInChildren<ParticleSystem>();
         particles.Stop();
-
+        cannons = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Lookout/Sphere").GetComponent<Lookoutosled>();
+     
+        textdeath = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Canvas/death/deathcount").GetComponent<Text>();
+       
+        _distanitionG = GameObject.FindWithTag("Health").transform;
+        _distanitionB = GameObject.FindWithTag("Ammo").transform;
 
         //  transform.rotation = Quaternion.LookRotation(moved);
     }
@@ -70,14 +75,26 @@ public class Aistest : MonoBehaviour
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
         textdeath = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Canvas/death/deathcount").GetComponent<Text>();
         textdeath.text = ""+death;
-        if (currentHealth == 20f && gotoammoo ==false)
+      
+        if (currentHealth <= 20f && gotoammoo ==false && _distanitionG != null )
         {
             gotohealth =true;
-           
+            _navMeshAgent.enabled = true;
             setdis();
         }
-        if (cannons.cannons == 10f&&  gotohealth == false)
+        if(_distanitionG == null|| currentHealth >= 21f)
         {
+            _navMeshAgent.enabled = false;
+            gotohealth = false;
+        }
+        if (_distanitionB == null || currentHealth >= 21f)
+        {
+            _navMeshAgent.enabled = false;
+            gotoammoo = false;
+        }
+        if (cannons.cannons <= 10f&&  gotohealth == false )
+        {
+            _navMeshAgent.enabled = true;
             gotoammoo = true;
             gotoammo();
         }
@@ -87,9 +104,13 @@ public class Aistest : MonoBehaviour
         if (gotohealth == true)
         {
           
-            _distanitionG = GameObject.FindWithTag("Ammo").transform;
+            _distanitionG = GameObject.FindWithTag("Health").transform;
             Vector3 targetve = _distanitionG.transform.position;
             _navMeshAgent.SetDestination(targetve);
+            if (targetve ==null)
+            {
+                _navMeshAgent.enabled = false;
+            }
          
         }
       
@@ -102,6 +123,10 @@ public class Aistest : MonoBehaviour
             _distanitionB = GameObject.FindWithTag("Ammo").transform;
             Vector3 targetve = _distanitionB.transform.position;
             _navMeshAgent.SetDestination(targetve);
+            if (targetve == null)
+            {
+                _navMeshAgent.enabled = false;
+            }
         }
       
 
@@ -109,7 +134,7 @@ public class Aistest : MonoBehaviour
     void FixedUpdate()
     {
        
-       if (currentHealth <= 0)
+       /*if (currentHealth <= 0)
         {
             //gameObject.tag = "Destroyed";
             movespeed = 0f;
@@ -119,7 +144,7 @@ public class Aistest : MonoBehaviour
             particles.Play();
             
 
-        }
+        }*/
         if (ischeck == false)
         {
             StartCoroutine(check());
@@ -329,9 +354,14 @@ public class Aistest : MonoBehaviour
         if (other.gameObject.tag == "Health")
         {
             currentHealth += healthback;
+            _navMeshAgent.enabled = false;
+        }
+        if (other.gameObject.tag == "Ammo")
+        {
+            cannons.cannons += 10;
+            _navMeshAgent.enabled = false;
         }
 
-      
 
 
 

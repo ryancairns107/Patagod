@@ -110,10 +110,7 @@ public class Lookoutosled : MonoBehaviour
             }
            
         }
-        if(other.gameObject.tag == "Ammo")
-        {
-            cannons += 10;
-        }
+    
     }
     void OnTriggerExit(Collider other)
     {
