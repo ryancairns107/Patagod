@@ -46,6 +46,7 @@ public class OsledAI : MonoBehaviour
     public bool gotoammoo;
     public bool gotohealth;
     public bool escapeandfire;
+    
    
     void Start()
     {

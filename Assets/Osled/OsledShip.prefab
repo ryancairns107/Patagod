@@ -1029,6 +1029,7 @@ GameObject:
   - component: {fileID: 2987455126741689591}
   - component: {fileID: 2987455126741689593}
   - component: {fileID: 2987455126741689590}
+  - component: {fileID: 4002815359798410765}
   m_Layer: 1
   m_Name: cannon_right 1 (2)
   m_TagString: Untagged
@@ -1053,7 +1054,7 @@ Transform:
   - {fileID: 2987455128553213891}
   - {fileID: 2987455126776717042}
   m_Father: {fileID: 2987455126935089310}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2987455126741689593
 MeshFilter:
@@ -1103,6 +1104,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &4002815359798410765
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987455126741689588}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea87b4101edabcd419ccf22436e021a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2987455126769694998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,6 +1294,7 @@ GameObject:
   - component: {fileID: 2987455126784876310}
   - component: {fileID: 2987455126784876312}
   - component: {fileID: 2987455126784876313}
+  - component: {fileID: 8684431430756785189}
   m_Layer: 1
   m_Name: cannon_right 1 (1)
   m_TagString: Untagged
@@ -1298,7 +1319,7 @@ Transform:
   - {fileID: 2987455127879937609}
   - {fileID: 2987455127213319969}
   m_Father: {fileID: 2987455126935089310}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2987455126784876312
 MeshFilter:
@@ -1348,6 +1369,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &8684431430756785189
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987455126784876311}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea87b4101edabcd419ccf22436e021a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2987455126811002595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,17 +1783,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2987455128068964444}
-  - {fileID: 2987455126948774697}
-  - {fileID: 2987455127523464188}
-  - {fileID: 2987455127955150409}
-  - {fileID: 2987455127020223783}
-  - {fileID: 2987455127563200523}
-  - {fileID: 2987455126784876310}
-  - {fileID: 2987455126741689591}
-  - {fileID: 2987455128065676038}
   - {fileID: 2987455128033561691}
   - {fileID: 2987455128275378900}
   - {fileID: 2987455128605283681}
+  - {fileID: 2987455126948774697}
+  - {fileID: 2987455127955150409}
+  - {fileID: 2987455127020223783}
+  - {fileID: 2987455127563200523}
+  - {fileID: 2987455127523464188}
+  - {fileID: 2987455126784876310}
+  - {fileID: 2987455126741689591}
+  - {fileID: 2987455128065676038}
   m_Father: {fileID: 2987455127415737557}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1848,6 +1888,7 @@ GameObject:
   - component: {fileID: 2987455126948774697}
   - component: {fileID: 2987455126948774699}
   - component: {fileID: 2987455126948774696}
+  - component: {fileID: 3973672104795711906}
   m_Layer: 1
   m_Name: cannon_left 1
   m_TagString: Untagged
@@ -1872,7 +1913,7 @@ Transform:
   - {fileID: 2987455128525381237}
   - {fileID: 2987455127602077858}
   m_Father: {fileID: 2987455126935089310}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2987455126948774699
 MeshFilter:
@@ -1922,6 +1963,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &3973672104795711906
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987455126948774694}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea87b4101edabcd419ccf22436e021a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2987455127000020523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,6 +2067,7 @@ GameObject:
   - component: {fileID: 2987455127020223783}
   - component: {fileID: 2987455127020223785}
   - component: {fileID: 2987455127020223782}
+  - component: {fileID: 6237048936251274940}
   m_Layer: 1
   m_Name: cannon_left 1 (2)
   m_TagString: Untagged
@@ -2031,7 +2092,7 @@ Transform:
   - {fileID: 2987455127834494772}
   - {fileID: 2987455126617756613}
   m_Father: {fileID: 2987455126935089310}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2987455127020223785
 MeshFilter:
@@ -2081,6 +2142,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &6237048936251274940
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987455127020223780}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea87b4101edabcd419ccf22436e021a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2987455127025831952
 GameObject:
   m_ObjectHideFlags: 0
@@ -3347,6 +3427,7 @@ GameObject:
   - component: {fileID: 2987455127523464188}
   - component: {fileID: 2987455127523464190}
   - component: {fileID: 2987455127523464191}
+  - component: {fileID: 4903001945471383772}
   m_Layer: 1
   m_Name: cannon_right 1
   m_TagString: Untagged
@@ -3362,7 +3443,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2987455127523464189}
   m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -7.6, y: 12.773978, z: 2.3}
+  m_LocalPosition: {x: -7.6, y: 12.77398, z: 2.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2987455127520426624}
@@ -3371,7 +3452,7 @@ Transform:
   - {fileID: 2987455128266715072}
   - {fileID: 2987455127859747352}
   m_Father: {fileID: 2987455126935089310}
-  m_RootOrder: 2
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2987455127523464190
 MeshFilter:
@@ -3421,6 +3502,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &4903001945471383772
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987455127523464189}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea87b4101edabcd419ccf22436e021a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2987455127524946709
 GameObject:
   m_ObjectHideFlags: 0
@@ -3592,6 +3692,7 @@ GameObject:
   - component: {fileID: 2987455127563200523}
   - component: {fileID: 2987455127563200525}
   - component: {fileID: 2987455127563200522}
+  - component: {fileID: 5496125644305177820}
   m_Layer: 1
   m_Name: cannon_left 1 (3)
   m_TagString: Untagged
@@ -3616,7 +3717,7 @@ Transform:
   - {fileID: 2987455127117161961}
   - {fileID: 2987455127758244771}
   m_Father: {fileID: 2987455126935089310}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2987455127563200525
 MeshFilter:
@@ -3666,6 +3767,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &5496125644305177820
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987455127563200520}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea87b4101edabcd419ccf22436e021a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2987455127601761719
 GameObject:
   m_ObjectHideFlags: 0
@@ -4347,6 +4467,7 @@ GameObject:
   - component: {fileID: 2987455127955150409}
   - component: {fileID: 2987455127955150411}
   - component: {fileID: 2987455127955150408}
+  - component: {fileID: 262212444787264177}
   m_Layer: 1
   m_Name: cannon_left 1 (1)
   m_TagString: Untagged
@@ -4371,7 +4492,7 @@ Transform:
   - {fileID: 2987455126769695001}
   - {fileID: 2987455127345133328}
   m_Father: {fileID: 2987455126935089310}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2987455127955150411
 MeshFilter:
@@ -4421,6 +4542,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &262212444787264177
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987455127955150406}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea87b4101edabcd419ccf22436e021a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2987455128028898578
 GameObject:
   m_ObjectHideFlags: 0
@@ -4512,6 +4652,7 @@ GameObject:
   - component: {fileID: 2987455128033561691}
   - component: {fileID: 2987455128033561693}
   - component: {fileID: 2987455128033561690}
+  - component: {fileID: 1825004636370669501}
   m_Layer: 1
   m_Name: cannon_front 1 (1)
   m_TagString: Untagged
@@ -4532,7 +4673,7 @@ Transform:
   m_Children:
   - {fileID: 2987455127025831955}
   m_Father: {fileID: 2987455126935089310}
-  m_RootOrder: 9
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &2987455128033561693
 MeshFilter:
@@ -4582,6 +4723,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &1825004636370669501
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987455128033561688}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea87b4101edabcd419ccf22436e021a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2987455128065676039
 GameObject:
   m_ObjectHideFlags: 0
@@ -4593,6 +4753,7 @@ GameObject:
   - component: {fileID: 2987455128065676038}
   - component: {fileID: 2987455128065676040}
   - component: {fileID: 2987455128065676041}
+  - component: {fileID: 8428408838227807329}
   m_Layer: 1
   m_Name: cannon_right 1 (3)
   m_TagString: Untagged
@@ -4617,7 +4778,7 @@ Transform:
   - {fileID: 2987455128028898581}
   - {fileID: 2987455126609511868}
   m_Father: {fileID: 2987455126935089310}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2987455128065676040
 MeshFilter:
@@ -4667,6 +4828,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &8428408838227807329
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987455128065676039}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea87b4101edabcd419ccf22436e021a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2987455128068964445
 GameObject:
   m_ObjectHideFlags: 0
@@ -4678,6 +4858,7 @@ GameObject:
   - component: {fileID: 2987455128068964444}
   - component: {fileID: 2987455128068964446}
   - component: {fileID: 2987455128068964447}
+  - component: {fileID: 4873613451920196235}
   m_Layer: 1
   m_Name: cannon_front 1
   m_TagString: Untagged
@@ -4748,6 +4929,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &4873613451920196235
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987455128068964445}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea87b4101edabcd419ccf22436e021a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2987455128110363995
 GameObject:
   m_ObjectHideFlags: 0
@@ -4866,8 +5066,34 @@ MonoBehaviour:
   rounds: 0
   maxrounds: 1
   cannons: 20
-  cam: {fileID: 0}
-  sidecam: {fileID: 0}
+  cam: {fileID: 877000857661469864}
+  sidecam: {fileID: 279018476871320723}
+  anim:
+  - {fileID: 4873613451920196235}
+  - {fileID: 1825004636370669501}
+  - {fileID: 7000701928581530321}
+  - {fileID: 858438114147337037}
+  - {fileID: 3973672104795711906}
+  - {fileID: 262212444787264177}
+  - {fileID: 6237048936251274940}
+  - {fileID: 5496125644305177820}
+  - {fileID: 4903001945471383772}
+  - {fileID: 8684431430756785189}
+  - {fileID: 4002815359798410765}
+  - {fileID: 8428408838227807329}
+  canon:
+  - {fileID: 2987455128068964445}
+  - {fileID: 2987455128033561688}
+  - {fileID: 2987455128275378901}
+  - {fileID: 2987455128605283678}
+  - {fileID: 2987455126948774694}
+  - {fileID: 2987455127955150406}
+  - {fileID: 2987455127020223780}
+  - {fileID: 2987455127563200520}
+  - {fileID: 2987455127523464189}
+  - {fileID: 2987455126784876311}
+  - {fileID: 2987455126741689588}
+  - {fileID: 2987455128065676039}
 --- !u!1 &2987455128124713740
 GameObject:
   m_ObjectHideFlags: 0
@@ -9902,6 +10128,7 @@ GameObject:
   - component: {fileID: 2987455128275378900}
   - component: {fileID: 2987455128275378902}
   - component: {fileID: 2987455128275378903}
+  - component: {fileID: 7000701928581530321}
   m_Layer: 1
   m_Name: cannon_front 1 (2)
   m_TagString: Untagged
@@ -9922,7 +10149,7 @@ Transform:
   m_Children:
   - {fileID: 2987455126568990211}
   m_Father: {fileID: 2987455126935089310}
-  m_RootOrder: 10
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &2987455128275378902
 MeshFilter:
@@ -9972,6 +10199,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &7000701928581530321
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987455128275378901}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea87b4101edabcd419ccf22436e021a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2987455128308516597
 GameObject:
   m_ObjectHideFlags: 0
@@ -10542,6 +10788,7 @@ GameObject:
   - component: {fileID: 2987455128605283681}
   - component: {fileID: 2987455128605283683}
   - component: {fileID: 2987455128605283680}
+  - component: {fileID: 858438114147337037}
   m_Layer: 1
   m_Name: cannon_front 1 (3)
   m_TagString: Untagged
@@ -10562,7 +10809,7 @@ Transform:
   m_Children:
   - {fileID: 2987455126896140889}
   m_Father: {fileID: 2987455126935089310}
-  m_RootOrder: 11
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &2987455128605283683
 MeshFilter:
@@ -10612,6 +10859,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &858438114147337037
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987455128605283678}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea87b4101edabcd419ccf22436e021a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2987455128622852811
 GameObject:
   m_ObjectHideFlags: 0
