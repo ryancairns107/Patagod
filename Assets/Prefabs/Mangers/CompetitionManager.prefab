@@ -1057,8 +1057,7 @@ MonoBehaviour:
   PirateShipPrefab:
   - {fileID: 2987455128124713740, guid: c3545b315445dac47894474cf20278d5, type: 3}
   - {fileID: 7840292162145636980, guid: 0c6c574d3bb224a979bb2789006f83c9, type: 3}
-  - {fileID: 7840292162145636980, guid: 0c6c574d3bb224a979bb2789006f83c9, type: 3}
-  - {fileID: 7840292162145636980, guid: 0c6c574d3bb224a979bb2789006f83c9, type: 3}
+  - {fileID: 7656282176022533998, guid: e6c16c21fff769c49b9a8c6b6cf217e4, type: 3}
   SpawnPoints:
   - {fileID: 3571431248633522685}
   - {fileID: 3571431247854765169}
@@ -1067,14 +1066,11 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   healthBar1: {fileID: 0}
   healthBar2: {fileID: 0}
-  healthBar3: {fileID: 0}
   Osledhealth: 0
   Patahealth: 0
   Jeroenhealth: 0
-  Ryanhealth: 0
   OsledDeath: 0
   PataDeath: 0
-  RyanDeath: 0
   JeroenDeath: 0
   GameTimer: 10
   board: {fileID: 3571431249053698499}
