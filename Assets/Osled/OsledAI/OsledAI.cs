@@ -115,14 +115,14 @@ public class OsledAI : MonoBehaviour
         rb.velocity = moved * moveforce;
         if (Physics.Raycast(transform.position, transform.forward, maxdis, hmm))
         {
-             moved = chose();
-            // transform.rotation = Quaternion.LookRotation(moved);
-            int rotLorR = Random.Range(1, 10);
-            if (rotLorR == 1)
+            // moved = chose();
+           // transform.rotation = Quaternion.LookRotation(moved);
+            int rotLorR = Random.Range(0,1 );
+            if (rotLorR == 0)
             {
                 transform.Rotate(transform.up * 90);
             }
-            if (rotLorR == 5)
+            if (rotLorR == 1)
             {
                 transform.Rotate(transform.up * -90);
             }
@@ -183,7 +183,7 @@ public class OsledAI : MonoBehaviour
     Vector3 chose()
     {
         System.Random ran = new System.Random();
-        int i = ran.Next(0, 2);
+        int i = ran.Next(0, 1);
         Vector3 Teep = new Vector3();
         if (i == 0)
         {
@@ -208,11 +208,7 @@ public class OsledAI : MonoBehaviour
 
             // Teep = -transform.forward;
         }
-        else if (i == 2)
-        {
-            // Teep = transform.right;
-            // transform.Rotate(transform.up * Time.deltaTime * rotspeed);
-        }
+   
 
         return Teep;
 

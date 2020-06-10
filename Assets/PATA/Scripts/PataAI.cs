@@ -31,7 +31,7 @@ public class PataAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         manager = GameObject.Find("CompetitionManager").GetComponent<Mangerosled>();
 
-        CannonBallPrefab = GameObject.Find("CannonBall");
+       // CannonBallPrefab = GameObject.Find("CannonBall");
         CannonFrontSpawnPoint = GameObject.Find("PataShip(Clone)/FrontSpawnPoint").transform;
         CannonLeftSpawnPoint = GameObject.Find("PataShip(Clone)/LeftSpawnPoint").transform;
         CannonRightSpawnPoint = GameObject.Find("PataShip(Clone)/RightSpawnPoint").transform;
