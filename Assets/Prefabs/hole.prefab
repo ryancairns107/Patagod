@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 508865832012824476}
   m_Layer: 9
   m_Name: hole
-  m_TagString: canon
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

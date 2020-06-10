@@ -1920,6 +1920,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 508865832012790074, guid: 039d69d477e43354696e141d9fd7b860,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 039d69d477e43354696e141d9fd7b860, type: 3}
 --- !u!1001 &531126766193340497
@@ -2003,6 +2008,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3571431247854765169, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.81
+      objectReference: {fileID: 0}
     - target: {fileID: 3571431248009482081, guid: 511990faeaadf4428964da901f8ee2fb,
         type: 3}
       propertyPath: m_IsActive
@@ -2012,6 +2022,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571431248058010006, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.59
       objectReference: {fileID: 0}
     - target: {fileID: 3571431248416543580, guid: 511990faeaadf4428964da901f8ee2fb,
         type: 3}
@@ -2088,6 +2103,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CompetitionManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571431248633522685, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.38
       objectReference: {fileID: 0}
     - target: {fileID: 3571431249053698499, guid: 511990faeaadf4428964da901f8ee2fb,
         type: 3}
