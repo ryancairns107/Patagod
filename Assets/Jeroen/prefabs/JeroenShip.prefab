@@ -941,6 +941,9 @@ MonoBehaviour:
   sphereSize: 0
   angle: 0
   movementSpeed: 35
+  currentHP: 0
+  maxHP: 100
+  healthBar: {fileID: 5410699804794302462}
 --- !u!198 &7656282176022534005
 ParticleSystem:
   m_ObjectHideFlags: 0
