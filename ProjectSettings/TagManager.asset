@@ -12,6 +12,7 @@ TagManager:
   - Health
   - Ammo
   - wall
+  - Rock
   layers:
   - Default
   - TransparentFX

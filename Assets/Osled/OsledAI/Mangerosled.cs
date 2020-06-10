@@ -22,6 +22,7 @@ public class Mangerosled : MonoBehaviour
     public float JeroenDeath;
     public float GameTimer;
     public GameObject board;
+    public bool canrespawn;
 
 
     // Start is called before the first frame update
@@ -49,38 +50,54 @@ public class Mangerosled : MonoBehaviour
         healthBar = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
         healthBar1 = GameObject.Find("PataShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
         healthBar2 = GameObject.Find("JeroenShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
-        Osledhealth = healthBar.health;
-        Patahealth = healthBar1.health;
-        Jeroenhealth = healthBar2.health;
+       Osledhealth = healthBar.health;
+       Patahealth = healthBar1.health;
+       Jeroenhealth = healthBar2.health;
+
+        if (Osledhealth <= 0)
+        {
+            int I = 1;
+            Debug.Log("fuck i respawned with now caps" +
+                "ahha");
+            GameObject.Find("OsledShip(Clone)").transform.position = SpawnPoints[I].transform.position;
+
+            OsledDeath += 1;
+            healthBar.health = 100;
+
+        }
+        if (Patahealth <= 0)
+        {
+            int I = 2;
+            GameObject.Find("PataShip(Clone)").transform.position = SpawnPoints[I].transform.position;
+
+            PataDeath += 1;
+            healthBar1.health = 100;
+
+        }
+        if (Jeroenhealth <= 0)
+        {
+
+            JeroenDeath += 1;
+            healthBar2.health = 100;
+            int I = 3;
+            GameObject.Find("JeroenShip(Clone)").transform.position = SpawnPoints[I].transform.position;
+
+        }
+
     }
     // Update is called once per frame
     void FixedUpdate()
     {
         GameTimer -=Time.deltaTime;
-    
-       // Ryanhealth = healthBar3.health;
-        if (Osledhealth <=0)
-        {
-            OsledDeath+=1;
-            Osledhealth = 100;
-        }
-        if (Patahealth <= 0)
-        {
-            PataDeath += 1;
-            Patahealth = 100;
-        }
-        if (Jeroenhealth <= 0)
-        {
-           JeroenDeath += 1;
-            Jeroenhealth = 100;
-        }
-       /* if (Ryanhealth <= 0)
-        {
-           // RyanDeath += 1;
-            Ryanhealth = 100;
-        }*/
-     
-
+        // Ryanhealth = healthBar3.health;
+        
+        /* if (Ryanhealth <= 0)
+         {
+            // RyanDeath += 1;
+             Ryanhealth = 100;
+         }*/
+      
     }
-  
+
+   
 }
