@@ -17,6 +17,8 @@ public class Lookoutosled : MonoBehaviour
     public float rounds;
     public float maxrounds =1f;
     public float cannons;
+    public GameObject cam;
+    public GameObject sidecam;
  
 
 
@@ -30,7 +32,8 @@ public class Lookoutosled : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-    
+        cam = GameObject.Find("Bk cam");
+        sidecam = GameObject.Find("cam");
         if (cannons == 50f)
         {
             
@@ -77,27 +80,33 @@ public class Lookoutosled : MonoBehaviour
         GameObject newInstance = Instantiate(CannonBallPrefab, CannonBackSpawnPoint.position, CannonBackSpawnPoint.rotation);
         if(CannonBackSpawnPoint.position == CannonBackSpawnPoint.position)
         {
+            
             CannonBallPrefab.name = "OsledCannon";
+            cam.SetActive(true);
         }
         
         rounds += 1;
         yield return new WaitForFixedUpdate();
-       
+        cam.SetActive(false);
     }
 
     public IEnumerator __FireLeft(float power)
     {
         GameObject newInstance = Instantiate(CannonBallPrefab, CannonLeftSpawnPoint.position, CannonLeftSpawnPoint.rotation);
         CannonBallPrefab.name = "OsledCannon";
+        sidecam.SetActive(true);
         yield return new WaitForFixedUpdate();
         rounds += 1;
+        sidecam.SetActive(false);
     }
 
     public IEnumerator __FireRight(float power)
     {
         GameObject newInstance = Instantiate(CannonBallPrefab, CannonRightSpawnPoint.position, CannonRightSpawnPoint.rotation);
         CannonBallPrefab.name = "OsledCannon";
+        sidecam.SetActive(true);
         yield return new WaitForFixedUpdate();
+        sidecam.SetActive(false);
         rounds += 1;
     }
 
