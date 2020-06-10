@@ -16,6 +16,7 @@ public class PataLookout : MonoBehaviour
         if (col.CompareTag("Boatbody"))
         {
             AIscript.enemy = true;
+
         }
     }
 

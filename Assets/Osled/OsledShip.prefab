@@ -5246,7 +5246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   D: -5
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   healthBar: {fileID: 2987455128680054832}
   sails:
   - {fileID: 2987455128574076948}
@@ -11044,9 +11044,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 4
+  m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 4
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
