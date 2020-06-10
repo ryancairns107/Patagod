@@ -1737,20 +1737,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50057d5ab050b448a295ec5b7fbd8a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PirateShipPrefab:
-  - {fileID: 3614029419288310494, guid: 085e6ebb8b5b07f49873b14011e5a80e, type: 3}
-  - {fileID: 6569065368413920373, guid: c4988418d75c9ed4ea74cc9b18a32538, type: 3}
-  - {fileID: 3614029419288310494, guid: 085e6ebb8b5b07f49873b14011e5a80e, type: 3}
-  - {fileID: 6569065368413920373, guid: c4988418d75c9ed4ea74cc9b18a32538, type: 3}
-  SpawnPoints:
-  - {fileID: 8461707869901883577}
-  - {fileID: 8461707868962771650}
-  - {fileID: 8461707869629769916}
-  - {fileID: 8461707870104310363}
-  healthbottle: {fileID: 0}
-  ammobottle: {fileID: 0}
-  healthbottle1: {fileID: 0}
-  ammobottle1: {fileID: 0}
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   timer: 10
 --- !u!1 &8461707870425573048
 GameObject:

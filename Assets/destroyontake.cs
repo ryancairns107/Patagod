@@ -6,7 +6,7 @@ public class destroyontake : MonoBehaviour
 {
     public GameObject Osled;
     public GameObject Pata;
-    public GameObject Ryan;
+   // public GameObject Ryan;
     public GameObject Jeroen;
 
  
@@ -21,7 +21,7 @@ public class destroyontake : MonoBehaviour
     {
         Osled = GameObject.Find("OsledShip(Clone)");
         Pata = GameObject.Find("PataShip(Clone)");
-        Ryan = GameObject.Find("RyanShip(Clone)");
+      //  Ryan = GameObject.Find("RyanShip(Clone)");
         Jeroen = GameObject.Find("JeroenShip(Clone)");
   
 
@@ -30,20 +30,20 @@ public class destroyontake : MonoBehaviour
     {
         if (other.gameObject == Osled)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
       
-        if (other.gameObject == Ryan)
-        {
-            Destroy(gameObject);
-        }
+       
         if (other.gameObject == Pata)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            //  Destroy(gameObject);
         }
         if (other.gameObject == Jeroen)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            //  Destroy(gameObject);
         }
     }
 }
