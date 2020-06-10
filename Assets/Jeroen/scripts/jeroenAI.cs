@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class jeroenAI : MonoBehaviour
+public class JeroenAI : MonoBehaviour
 {
     public GameObject thisShip;
     public GameObject TargetShip;
-    public float sphereSize = 100;
+    public float sphereSize;
+    Quaternion desiredRotation;
+    public float angle;
 
     void Update()
     {
+        Debug.Log(desiredRotation);
         RaycastHit hit;
-        if (Physics.SphereCast(thisShip.transform.position, sphereSize, transform.forward, out hit, 1))
+        if (Physics.SphereCast(thisShip.transform.position, 500, transform.forward, out hit, 1))
         {
-            if(hit.transform.gameObject.tag == "Boatbody")
+            if (hit.transform.gameObject.tag == "Boatbody" && hit.transform.gameObject != this.gameObject)
             {
                 TargetShip = hit.transform.gameObject;
             }
@@ -24,12 +27,15 @@ public class jeroenAI : MonoBehaviour
         }
         if (TargetShip != null)
         {
-
+            Vector3 posRelative = TargetShip.transform.position - transform.position;
+            desiredRotation = Quaternion.LookRotation(posRelative);
+            desiredRotation *= Quaternion.Euler(0, -90, 0);
+            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 0.5f * Time.deltaTime);
         }
     }
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(thisShip.transform.position, sphereSize);
+        Gizmos.DrawSphere(transform.position, 500);
     }
 }

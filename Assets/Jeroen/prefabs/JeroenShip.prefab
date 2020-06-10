@@ -726,7 +726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7656282175974419542
 Transform:
   m_ObjectHideFlags: 0
@@ -787,7 +787,7 @@ GameObject:
   - component: {fileID: 7656282176022534000}
   - component: {fileID: 7656282176022534006}
   - component: {fileID: 7656282176022534007}
-  - component: {fileID: 8947066839466478611}
+  - component: {fileID: 4047435538279041343}
   - component: {fileID: 7656282176022534005}
   - component: {fileID: 7656282176022534004}
   m_Layer: 0
@@ -924,7 +924,7 @@ CapsuleCollider:
   m_Height: 3.0797348
   m_Direction: 2
   m_Center: {x: -0.008166678, y: -0.111345105, z: 0.35837927}
---- !u!114 &8947066839466478611
+--- !u!114 &4047435538279041343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -939,6 +939,7 @@ MonoBehaviour:
   thisShip: {fileID: 7656282177528164528}
   TargetShip: {fileID: 0}
   sphereSize: 500
+  wantedAngle: 0
 --- !u!198 &7656282176022534005
 ParticleSystem:
   m_ObjectHideFlags: 0
