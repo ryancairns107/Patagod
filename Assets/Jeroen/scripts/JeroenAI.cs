@@ -30,6 +30,7 @@ public class jeroenAI : MonoBehaviour
         particleSys = GetComponentInChildren<ParticleSystem>();
         particleSys.Stop();
     }
+    //
     void Update()
     {
         transform.position += transform.forward * movementSpeed * Time.deltaTime;

@@ -28,11 +28,14 @@ public class Mangerosled : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // board= GameObject.Find("CompetitionManager/Canvas");
+        // board= GameObject.Find("CompetitionManager/Canvas");
+        GameObject pirateShip = Instantiate(PirateShipPrefab[0], SpawnPoints[0].position, SpawnPoints[0].rotation);
+        GameObject pirateShip2 = Instantiate(PirateShipPrefab[1], SpawnPoints[1].position, SpawnPoints[1].rotation);
+        GameObject pirateShip3 = Instantiate(PirateShipPrefab[2], SpawnPoints[2].position, SpawnPoints[2].rotation);
 
         for (int i = 0; i < 3; i++)
         {
-            GameObject pirateShip = Instantiate(PirateShipPrefab[i], SpawnPoints[i].position, SpawnPoints[i].rotation);
+           
          
            
         }
