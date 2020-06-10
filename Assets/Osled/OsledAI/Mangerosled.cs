@@ -29,7 +29,7 @@ public class Mangerosled : MonoBehaviour
     {
        // board= GameObject.Find("CompetitionManager/Canvas");
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
             GameObject pirateShip = Instantiate(PirateShipPrefab[i], SpawnPoints[i].position, SpawnPoints[i].rotation);
          
