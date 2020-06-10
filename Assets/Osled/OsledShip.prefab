@@ -5274,6 +5274,11 @@ MonoBehaviour:
   gotoammoo: 0
   gotohealth: 0
   escapeandfire: 0
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!136 &2987455128124713749
 CapsuleCollider:
   m_ObjectHideFlags: 0

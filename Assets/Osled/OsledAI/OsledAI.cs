@@ -46,11 +46,15 @@ public class OsledAI : MonoBehaviour
     public bool gotoammoo;
     public bool gotohealth;
     public bool escapeandfire;
+    public GameObject[] items;
     
    
     void Start()
     {
-
+        items[0] = GameObject.Find("bottleLarge (1)");
+        items[1] = GameObject.Find("bottle (1)");
+        items[2] = GameObject.Find("bottleLarge");
+        items[3] = GameObject.Find("bottle");
         rb = GetComponent<Rigidbody>();
         moved = chose();
         currentHealth = 100;
@@ -161,7 +165,7 @@ public class OsledAI : MonoBehaviour
 
     void setdis()
     {
-        if (gotohealth == true)
+        if (gotohealth == true && (items[1].activeSelf ==true || items[3].activeSelf == true))
         {
 
             _distanitionG = GameObject.FindWithTag("Health").transform;
@@ -184,7 +188,7 @@ public class OsledAI : MonoBehaviour
     }
     void gotoammo()
     {
-        if (gotoammoo == true)
+        if (gotoammoo == true &&(items[0].activeSelf == true || items[2].activeSelf == true))
         {
             _distanitionB = GameObject.FindWithTag("Ammo").transform;
             Vector3 targetve = _distanitionB.transform.position;
