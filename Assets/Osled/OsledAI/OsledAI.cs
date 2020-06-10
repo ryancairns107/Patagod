@@ -45,6 +45,8 @@ public class OsledAI : MonoBehaviour
     public Lookoutosled cannons;
     public bool gotoammoo;
     public bool gotohealth;
+    public bool escapeandfire;
+   
     void Start()
     {
 
@@ -65,7 +67,7 @@ public class OsledAI : MonoBehaviour
     }
     void Update()
     {
-
+        
         cannons = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Lookout/Sphere").GetComponent<Lookoutosled>();
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
         textdeath = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Canvas/death/deathcount").GetComponent<Text>();
@@ -92,6 +94,12 @@ public class OsledAI : MonoBehaviour
             _navMeshAgent.enabled = true;
             gotoammoo = true;
             gotoammo();
+        }
+        if (  escapeandfire == true)
+        {
+          
+            cannons.__FireFront(4);
+          
         }
         /*if (currentHealth <= 0)
         {
@@ -132,19 +140,19 @@ public class OsledAI : MonoBehaviour
 
 
         }
-        if (iswalk == false)
+        if (iswalk == false )
         {
             StartCoroutine(wandr());
         }
-        if (isrotr == true)
+        if (isrotr == true )
         {
             transform.Rotate(transform.up * Time.deltaTime * rotspeed);
         }
-        if (isrotl == true)
+        if (isrotl == true )
         {
             transform.Rotate(transform.up * Time.deltaTime * -rotspeed);
         }
-        if (iswalk == true)
+        if (iswalk == true )
         {
             transform.position += transform.forward * movespeed * Time.deltaTime;
         }
@@ -341,6 +349,7 @@ public class OsledAI : MonoBehaviour
 
             TakeDamage(D);
             Debug.Log("braceee");
+            escapeandfire = true;
         }
 
         if (other.gameObject.tag == "Health")

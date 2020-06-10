@@ -4712,7 +4712,6 @@ GameObject:
   - component: {fileID: 2987455128124713743}
   - component: {fileID: 2987455128124713746}
   - component: {fileID: 2987455128124713748}
-  - component: {fileID: 2987455128124713747}
   - component: {fileID: 8358943024050476855}
   - component: {fileID: 2987455128124713749}
   - component: {fileID: 2987455128124713751}
@@ -4837,47 +4836,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2987455128124713747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2987455128124713740}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29a551c591b920b4992f76fb7320329a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  D: -5
-  maxHealth: 100
-  currentHealth: 10
-  healthBar: {fileID: 2987455128680054832}
-  sails:
-  - {fileID: 2987455128574076948}
-  - {fileID: 2987455127867491692}
-  - {fileID: 2987455126945004362}
-  movespeed: 60
-  rotspeed: 100
-  ischeckR: 0
-  ischeckL: 0
-  hmm:
-    serializedVersion: 2
-    m_Bits: 512
-  maxdis: 20
-  moved: {x: 0, y: 0, z: 0}
-  moveforce: 50
-  Lookout: {fileID: 2987455127896231989}
-  death: 0
-  kill: 0
-  textdeath: {fileID: 0}
-  textkill: {fileID: 0}
-  healthback: 20
-  _distanitionG: {fileID: 0}
-  _distanitionB: {fileID: 0}
-  cannons: {fileID: 0}
-  gotoammoo: 0
-  gotohealth: 0
 --- !u!114 &8358943024050476855
 MonoBehaviour:
   m_ObjectHideFlags: 0

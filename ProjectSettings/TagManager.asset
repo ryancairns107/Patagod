@@ -11,6 +11,7 @@ TagManager:
   - Destroyed
   - Health
   - Ammo
+  - wall
   layers:
   - Default
   - TransparentFX
