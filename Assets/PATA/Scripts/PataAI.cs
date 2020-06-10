@@ -9,21 +9,23 @@ public class PataAI : MonoBehaviour
     public Transform[] approach;
     public Mangerosled manager;
     public bool enemy;
+    public float check;
 
     public GameObject CannonBallPrefab = null;
     public Transform CannonFrontSpawnPoint = null;
     public Transform CannonLeftSpawnPoint = null;
     public Transform CannonRightSpawnPoint = null;
+
     public float cannonBallAmount = 20f;
     public bool shotFired;
     public float reload = 5f;
 
-    public float check;
-
     public Vector3 IdlePosition;
     public bool resetIdle;
     public float loopIdle = 3f;
-    
+
+    public shiphealth health;
+    public int currentHeath = 100;
 
 
     void Start()
@@ -37,7 +39,7 @@ public class PataAI : MonoBehaviour
     {
          approach[0] = GameObject.Find("OsledShip(Clone)").transform;
          approach[1] = GameObject.Find("JeroenShip(Clone)").transform;
-        //approach[2] = GameObject.Find("RyanShip(Clone)").transform;
+         health = GameObject.Find("PataShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
 
         // timer for reloading 
         if (shotFired == true && reload > 0f)
@@ -71,28 +73,51 @@ public class PataAI : MonoBehaviour
 
     }
 
-     public IEnumerator __Idle()
+    void HealthCounter(int num)
+    {
+        currentHeath += num;
+
+        health.SetHealth(currentHeath);
+
+        if (currentHeath <= 0)
+        {
+            currentHeath = 100;
+            //death += 1;
+        }
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.CompareTag("Ammo"))
+        {
+            cannonBallAmount += 10f;
+        }
+        else if (col.CompareTag("Health"))
+        {
+            HealthCounter(20);
+        }
+        else if (col.CompareTag("canon"))
+        {
+            HealthCounter(-20);
+        }
+    }
+
+    public IEnumerator __Idle()
      {
         for (var i = 0; i < approach.Length; i++)
         {
             if (manager.Osledhealth <  manager.Jeroenhealth)
             {
                 agent.SetDestination(approach[0].position);
-                Debug.Log("Pata Following Osled");
+                Debug.Log("Pata Following Osleds Ass");
                 check = 0;
             }
             else if (manager.Jeroenhealth < manager.Osledhealth)
             {
                 agent.SetDestination(approach[1].position);
-                Debug.Log("Pata Following Jeroen");
+                Debug.Log("Pata Following Slow Jeroen");
                 check = 1;
-            }
-           /* else if (manager.Jeroenhealth <  manager.Osledhealth)
-            {
-                agent.SetDestination(approach[2].position);
-                Debug.Log("Pata Following Jeroen");
-                check = 2;
-            } */else if (resetIdle == false)
+            }else if (resetIdle == false)
             {
                 check = 3;
 
