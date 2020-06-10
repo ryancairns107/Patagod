@@ -75,7 +75,11 @@ public class Lookoutosled : MonoBehaviour
     public IEnumerator __FireFront(float power)
     {
         GameObject newInstance = Instantiate(CannonBallPrefab, CannonBackSpawnPoint.position, CannonBackSpawnPoint.rotation);
-        CannonBallPrefab.name = "OsledCannon";
+        if(CannonBackSpawnPoint.position == CannonBackSpawnPoint.position)
+        {
+            CannonBallPrefab.name = "OsledCannon";
+        }
+        
         rounds += 1;
         yield return new WaitForFixedUpdate();
        
