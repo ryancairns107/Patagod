@@ -1875,6 +1875,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3571431247777474278, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571431248009482081, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571431248010172649, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3571431248416543580, guid: 511990faeaadf4428964da901f8ee2fb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1932,13 +1947,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3571431248416543581, guid: 511990faeaadf4428964da901f8ee2fb,
         type: 3}
+      propertyPath: PirateShipPrefab.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571431248416543581, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
       propertyPath: GameTimer
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 3571431248416543581, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: PirateShipPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 7656282176022533998, guid: e6c16c21fff769c49b9a8c6b6cf217e4,
+        type: 3}
     - target: {fileID: 3571431248416543582, guid: 511990faeaadf4428964da901f8ee2fb,
         type: 3}
       propertyPath: m_Name
       value: CompetitionManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571431249053698499, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 511990faeaadf4428964da901f8ee2fb, type: 3}

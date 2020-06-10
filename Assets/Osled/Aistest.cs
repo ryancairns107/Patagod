@@ -99,7 +99,63 @@ public class Aistest : MonoBehaviour
             gotoammo();
         }
     }
-     void setdis()
+    void FixedUpdate()
+    {
+
+        /*if (currentHealth <= 0)
+         {
+             //gameObject.tag = "Destroyed";
+             movespeed = 0f;
+             rotspeed = 0f;
+             moveforce = 0f;
+             RotationSpeed = 0f;
+             particles.Play();
+
+
+         }*/
+        if (ischeck == false)
+        {
+            StartCoroutine(check());
+            // StartCoroutine(__TurnLookoutRight(90));
+        }
+
+
+
+        rb.velocity = moved * moveforce;
+        if (Physics.Raycast(transform.position, transform.forward, maxdis, hmm))
+        {
+            // moved = chose();
+            // transform.rotation = Quaternion.LookRotation(moved);
+            int rotLorR = Random.Range(1, 10);
+            if (rotLorR == 1)
+            {
+                transform.Rotate(transform.up * 90);
+            }
+            if (rotLorR == 5)
+            {
+                transform.Rotate(transform.up * -90);
+            }
+
+
+        }
+        if (iswalk == false)
+        {
+            StartCoroutine(wandr());
+        }
+        if (isrotr == true)
+        {
+            transform.Rotate(transform.up * Time.deltaTime * rotspeed);
+        }
+        if (isrotl == true)
+        {
+            transform.Rotate(transform.up * Time.deltaTime * -rotspeed);
+        }
+        if (iswalk == true)
+        {
+            transform.position += transform.forward * movespeed * Time.deltaTime;
+        }
+    }
+    void setdis()
     {
         if (gotohealth == true)
         {
@@ -131,62 +187,7 @@ public class Aistest : MonoBehaviour
       
 
     }
-    void FixedUpdate()
-    {
-       
-       /*if (currentHealth <= 0)
-        {
-            //gameObject.tag = "Destroyed";
-            movespeed = 0f;
-            rotspeed = 0f;
-            moveforce = 0f;
-            RotationSpeed = 0f;
-            particles.Play();
-            
-
-        }*/
-        if (ischeck == false)
-        {
-            StartCoroutine(check());
-           // StartCoroutine(__TurnLookoutRight(90));
-        }
-    
-
-
-        rb.velocity = moved * moveforce;
-        if (Physics.Raycast(transform.position, transform.forward, maxdis, hmm))
-        {
-            // moved = chose();
-            // transform.rotation = Quaternion.LookRotation(moved);
-            int rotLorR = Random.Range(1, 10);
-            if(rotLorR == 1)
-            {
-                transform.Rotate(transform.up  * 90);
-            }
-            if (rotLorR == 5)
-            {
-                transform.Rotate(transform.up *  -90);
-            }
-
-          
-        }
-            if (iswalk == false)
-        {
-            StartCoroutine(wandr());
-        }
-        if (isrotr == true)
-        {
-            transform.Rotate(transform.up * Time.deltaTime *rotspeed);
-        }
-        if (isrotl == true)
-        {
-            transform.Rotate(transform.up * Time.deltaTime * -rotspeed);
-        }
-        if (iswalk == true)
-        {
-            transform.position += transform.forward * movespeed * Time.deltaTime;
-        }
-    }
+   
     Vector3 chose()
     {
         System.Random ran = new System.Random();

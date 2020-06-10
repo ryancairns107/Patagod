@@ -41,11 +41,11 @@ public class PataAI : MonoBehaviour
     void FixedUpdate()
     {
          approach[0] = GameObject.Find("OsledShip(Clone)").transform;
-         approach[1] = GameObject.Find("RyanShip(Clone)").transform;
-         approach[2] = GameObject.Find("JeroenShip(Clone)").transform;
+         approach[1] = GameObject.Find("JeroenShip(Clone)").transform;
+        //approach[2] = GameObject.Find("RyanShip(Clone)").transform;
 
-            // timer for reloading 
-            if (shotFired == true && reload > 0f)
+        // timer for reloading 
+        if (shotFired == true && reload > 0f)
             {
                 reload -= Time.fixedDeltaTime;
                 
@@ -80,24 +80,24 @@ public class PataAI : MonoBehaviour
      {
         for (var i = 0; i < approach.Length; i++)
         {
-            if (manager.Osledhealth < manager.Ryanhealth && manager.Osledhealth < manager.Jeroenhealth)
+            if (manager.Osledhealth <  manager.Jeroenhealth)
             {
                 agent.SetDestination(approach[0].position);
                 Debug.Log("Pata Following Osled");
                 check = 0;
             }
-            else if (manager.Ryanhealth < manager.Osledhealth && manager.Ryanhealth < manager.Jeroenhealth)
+            else if (manager.Jeroenhealth < manager.Osledhealth)
             {
                 agent.SetDestination(approach[1].position);
-                Debug.Log("Pata Following Ryan");
+                Debug.Log("Pata Following Jeroen");
                 check = 1;
             }
-            else if (manager.Jeroenhealth < manager.Ryanhealth && manager.Jeroenhealth < manager.Osledhealth)
+           /* else if (manager.Jeroenhealth <  manager.Osledhealth)
             {
                 agent.SetDestination(approach[2].position);
                 Debug.Log("Pata Following Jeroen");
                 check = 2;
-            } else if (resetIdle == false)
+            } */else if (resetIdle == false)
             {
                 check = 3;
 
