@@ -112,7 +112,7 @@ public class OsledAI : MonoBehaviour
       
 
 
-        rb.velocity = moved * moveforce;
+       rb.velocity = moved * moveforce;
         if (Physics.Raycast(transform.position, transform.forward, maxdis, hmm))
         {
             // moved = chose();
@@ -125,6 +125,9 @@ public class OsledAI : MonoBehaviour
             if (rotLorR == 1)
             {
                 transform.Rotate(transform.up * -90);
+            } else
+            {
+                transform.Rotate(transform.up * 180);
             }
 
 

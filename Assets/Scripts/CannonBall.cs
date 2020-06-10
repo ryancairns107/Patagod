@@ -24,11 +24,20 @@ public class CannonBall : MonoBehaviour
         {
             Osledkill.kill += 1;
         }
-        if(other.gameObject.tag == "wall")
+        if (other.gameObject.tag == "wall")
         {
             Destroy(gameObject);
+         //   Debug.Log("destroycvannon");
         }
-      
+
     }
-   
+     void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "wall")
+        {
+            Destroy(gameObject);
+          //  Debug.Log("destroycvannon");
+        }
+    }
+
 }
