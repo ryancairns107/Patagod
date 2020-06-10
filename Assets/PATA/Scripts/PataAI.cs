@@ -124,6 +124,7 @@ public class PataAI : MonoBehaviour
                     IdlePosition = new Vector3(Random.Range(-200.0f, 200.0f), 0, Random.Range(-200.0f, 200.0f));
                     agent.SetDestination(IdlePosition);
                     Debug.Log("Pata IDLE");
+                    
 
                 resetIdle = true;
             }
