@@ -30,8 +30,6 @@ public class PataAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         manager = GameObject.Find("CompetitionManager").GetComponent<Mangerosled>();
-
-        CannonBallPrefab = GameObject.Find("CannonBall");
         CannonFrontSpawnPoint = GameObject.Find("PataShip(Clone)/FrontSpawnPoint").transform;
         CannonLeftSpawnPoint = GameObject.Find("PataShip(Clone)/LeftSpawnPoint").transform;
         CannonRightSpawnPoint = GameObject.Find("PataShip(Clone)/RightSpawnPoint").transform;
@@ -48,7 +46,7 @@ public class PataAI : MonoBehaviour
             if (shotFired == true && reload > 0f)
             {
                 reload -= Time.fixedDeltaTime;
-                
+
             }
             else if (reload < 0f)
             {
@@ -116,7 +114,7 @@ public class PataAI : MonoBehaviour
         if (enemy == true && cannonBallAmount != 0f && shotFired == false)
         {
             GameObject newInstance = Instantiate(CannonBallPrefab, CannonFrontSpawnPoint.position, CannonFrontSpawnPoint.rotation);
-            CannonBallPrefab.name = "CannonBall";
+            CannonBallPrefab.name = "PataCannonBall";
             cannonBallAmount -= 1f;
             shotFired = true;
 
