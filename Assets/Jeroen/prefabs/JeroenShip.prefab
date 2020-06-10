@@ -787,7 +787,7 @@ GameObject:
   - component: {fileID: 7656282176022534000}
   - component: {fileID: 7656282176022534006}
   - component: {fileID: 7656282176022534007}
-  - component: {fileID: 1572223370422187659}
+  - component: {fileID: 1168897727413260011}
   - component: {fileID: 7656282176022534005}
   - component: {fileID: 7656282176022534004}
   m_Layer: 0
@@ -924,7 +924,7 @@ CapsuleCollider:
   m_Height: 3.0797348
   m_Direction: 2
   m_Center: {x: -0.008166678, y: -0.111345105, z: 0.35837927}
---- !u!114 &1572223370422187659
+--- !u!114 &1168897727413260011
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -940,6 +940,7 @@ MonoBehaviour:
   TargetShip: {fileID: 0}
   sphereSize: 0
   angle: 0
+  movementSpeed: 35
 --- !u!198 &7656282176022534005
 ParticleSystem:
   m_ObjectHideFlags: 0
