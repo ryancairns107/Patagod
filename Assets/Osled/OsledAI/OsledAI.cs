@@ -165,10 +165,16 @@ public class OsledAI : MonoBehaviour
         {
 
             _distanitionG = GameObject.FindWithTag("Health").transform;
+           
             Vector3 targetve = _distanitionG.transform.position;
-            _navMeshAgent.SetDestination(targetve);
+            if (targetve != null)
+            {
+                _navMeshAgent.SetDestination(targetve);
+            }
+            
             if (targetve == null)
             {
+                gotohealth = true;
                 _navMeshAgent.enabled = false;
             }
 
@@ -182,9 +188,13 @@ public class OsledAI : MonoBehaviour
         {
             _distanitionB = GameObject.FindWithTag("Ammo").transform;
             Vector3 targetve = _distanitionB.transform.position;
-            _navMeshAgent.SetDestination(targetve);
+            if (targetve != null)
+            {
+                _navMeshAgent.SetDestination(targetve);
+            }
             if (targetve == null)
             {
+                gotoammoo = false;
                 _navMeshAgent.enabled = false;
             }
         }
@@ -336,6 +346,7 @@ public class OsledAI : MonoBehaviour
         {
             currentHealth = 100;
             death += 1;
+            healthBar.SetHealth(currentHealth);
         }
     }
 

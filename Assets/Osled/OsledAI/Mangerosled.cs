@@ -56,32 +56,36 @@ public class Mangerosled : MonoBehaviour
 
         if (Osledhealth <= 0)
         {
-            int I = 1;
+            int I = Random.Range(0,3);
             Debug.Log("fuck i respawned with now caps" +
                 "ahha");
             GameObject.Find("OsledShip(Clone)").transform.position = SpawnPoints[I].transform.position;
 
             OsledDeath += 1;
             healthBar.health = 100;
+            healthBar.SetHealth(100);
 
         }
         if (Patahealth <= 0)
         {
-            int I = 2;
+            int I = Random.Range(0, 3);
             GameObject.Find("PataShip(Clone)").transform.position = SpawnPoints[I].transform.position;
 
             PataDeath += 1;
             healthBar1.health = 100;
+            healthBar1.SetHealth(100);
+
 
         }
         if (Jeroenhealth <= 0)
         {
 
             JeroenDeath += 1;
-            healthBar2.health = 100;
-            int I = 3;
+            
+            int I = Random.Range(0, 3);
             GameObject.Find("JeroenShip(Clone)").transform.position = SpawnPoints[I].transform.position;
-
+            healthBar2.health = 100;
+            healthBar2.SetHealth(100);
         }
 
     }
