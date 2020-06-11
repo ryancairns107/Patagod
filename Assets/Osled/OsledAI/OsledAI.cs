@@ -372,7 +372,18 @@ public class OsledAI : MonoBehaviour
         {
             TakeDamage(D);
         }
-        if (other.gameObject.tag == "Boatbody")
+        if (other.gameObject.tag == "Rock")
+        {
+            TakeDamage(D);
+        }
+        if (other.gameObject.name == "JeroenShip(Clone)")
+        {
+
+            TakeDamage(D);
+            Debug.Log("braceee");
+            escapeandfire = true;
+        }
+        if (other.gameObject.name == "PataShip(Clone)")
         {
 
             TakeDamage(D);
