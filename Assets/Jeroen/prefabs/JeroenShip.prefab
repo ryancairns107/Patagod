@@ -790,6 +790,7 @@ GameObject:
   - component: {fileID: 1486626689234780211}
   - component: {fileID: 7656282176022534005}
   - component: {fileID: 7656282176022534004}
+  - component: {fileID: 7354123950279872641}
   m_Layer: 0
   m_Name: JeroenShip
   m_TagString: Boatbody
@@ -5680,6 +5681,22 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!208 &7354123950279872641
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7656282176022533998}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 2, y: 0.5, z: 2}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7656282176037538105
 GameObject:
   m_ObjectHideFlags: 0
