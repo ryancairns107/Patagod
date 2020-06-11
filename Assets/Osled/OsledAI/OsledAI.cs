@@ -392,7 +392,7 @@ public class OsledAI : MonoBehaviour
             escapeandfire = true;
         }
 
-        if (other.gameObject.tag == "Health")
+        if (other.gameObject.tag == "Health" && currentHealth<100)
         {
             currentHealth += healthback;
             _navMeshAgent.enabled = false;

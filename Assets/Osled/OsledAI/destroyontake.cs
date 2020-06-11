@@ -28,19 +28,34 @@ public class destroyontake : MonoBehaviour
 }
      void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == Osled)
+        if (other.gameObject == Osled && Osled.GetComponent<OsledAI>().currentHealth<100 && this.tag =="Health" )
         {
             gameObject.SetActive(false);
             //Destroy(gameObject);
         }
-      
-       
-        if (other.gameObject == Pata)
+        if (other.gameObject == Osled && this.tag =="Ammo")
+        {
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
+        }
+        if (other.gameObject == Jeroen && this.tag == "Ammo")
+        {
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
+        }
+        if (other.gameObject == Pata && this.tag == "Ammo")
+        {
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
+        }
+
+
+        if (other.gameObject == Pata && Pata.GetComponent<PataAI>().currentHeath < 100 && this.tag == "Health")
         {
             gameObject.SetActive(false);
             //  Destroy(gameObject);
         }
-        if (other.gameObject == Jeroen)
+        if (other.gameObject == Jeroen && Jeroen.GetComponent<JeroenAI>().currentHP < 100 && this.tag == "Health")
         {
             gameObject.SetActive(false);
             //  Destroy(gameObject);
