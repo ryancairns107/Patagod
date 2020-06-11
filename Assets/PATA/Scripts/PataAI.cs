@@ -9,6 +9,7 @@ public class PataAI : MonoBehaviour
     public Transform[] approach;
     public Mangerosled manager;
     public bool enemy;
+    public bool runAway;
     public float check;
 
     public GameObject CannonBallPrefab = null;
@@ -37,6 +38,8 @@ public class PataAI : MonoBehaviour
 
     void FixedUpdate()
     {
+         agent.updateRotation = true;
+
          approach[0] = GameObject.Find("OsledShip(Clone)").transform;
          approach[1] = GameObject.Find("JeroenShip(Clone)").transform;
          health = GameObject.Find("PataShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
@@ -96,7 +99,7 @@ public class PataAI : MonoBehaviour
         {
             HealthCounter(20);
         }
-        else if (col.CompareTag("canon"))
+        else if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)")
         {
             HealthCounter(-20);
         }
@@ -137,7 +140,7 @@ public class PataAI : MonoBehaviour
         if (enemy == true && cannonBallAmount != 0f && shotFired == false)
         {
             GameObject newInstance = Instantiate(CannonBallPrefab, CannonFrontSpawnPoint.position, CannonFrontSpawnPoint.rotation);
-            CannonBallPrefab.name = "CannonBall";
+            CannonBallPrefab.name = "PataCannonBall";
             cannonBallAmount -= 1f;
             shotFired = true;
 
@@ -158,6 +161,14 @@ public class PataAI : MonoBehaviour
     }
     public IEnumerator __RunAway()
     {
+        if (runAway == true)
+        {
+           // agent.transform.Rotate(0.0f, +90.0f, 0.0f, Space.Self);
+            agent.acceleration = 200f;
+            agent.SetDestination(new Vector3(0,0,0));
+            Debug.Log("get away f**kers");
+        }
+
         yield return new WaitForFixedUpdate();
     }
 

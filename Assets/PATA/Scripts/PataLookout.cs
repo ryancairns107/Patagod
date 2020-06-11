@@ -5,6 +5,8 @@ using UnityEngine;
 public class PataLookout : MonoBehaviour
 {
     public PataAI AIscript;
+    public bool doItOnce;
+   // public float timer = 5f;
 
     void FixedUpdate()
     {
@@ -17,6 +19,10 @@ public class PataLookout : MonoBehaviour
         {
             AIscript.enemy = true;
 
+        } else if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)" && doItOnce == false)
+        {
+            AIscript.runAway = true;
+            doItOnce = true;
         }
     }
 
@@ -25,6 +31,19 @@ public class PataLookout : MonoBehaviour
         if (col.CompareTag("Boatbody"))
         {
             AIscript.enemy = false;
+        } else if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)" && doItOnce == true)
+        {
+            AIscript.runAway = false;
+            doItOnce = false;
         }
     }
 }
+
+      /*  } else if (col.CompareTag("canon") && timer > 0f)
+        {
+            AIscript.runAway = true;
+            timer -= Time.fixedDeltaTime;
+        } else if (timer< 0f)
+        {
+            AIscript.runAway = false;
+        }*/
