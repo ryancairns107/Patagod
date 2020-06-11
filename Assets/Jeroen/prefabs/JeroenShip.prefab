@@ -945,8 +945,9 @@ MonoBehaviour:
   currentHP: 0
   maxHP: 100
   healthBar: {fileID: 5410699804794302462}
-  ballDamage: 0
-  cannonAmmo: 0
+  ballDamage: 20
+  cannonAmmo: 20
+  canShoot: 1
   particleSys: {fileID: 7656282176022534005}
   navAgent: {fileID: 7656282176022534000}
   CannonBall: {fileID: 2501402490172963987, guid: 6cf9d983923f144efbcd7c98b8ec1870,

@@ -161,6 +161,15 @@ public class OsledAI : MonoBehaviour
         {
             transform.position += transform.forward * movespeed * Time.deltaTime;
         }
+        if (currentHealth > 100)
+        {
+           
+            currentHealth = 100;
+          
+
+            //  healthBar.SetHealth(100);
+
+        }
     }
 
     void setdis()
@@ -348,9 +357,12 @@ public class OsledAI : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
+            GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Lookout/Sphere").GetComponent<Lookoutosled>().cannons = 20;
             currentHealth = 100;
             death += 1;
-          //  healthBar.SetHealth(100);
+            
+            //  healthBar.SetHealth(100);
+
         }
     }
 
