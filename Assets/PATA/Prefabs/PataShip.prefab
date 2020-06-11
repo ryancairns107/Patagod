@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AIscript: {fileID: 928016210609069419}
+  doItOnce: 0
 --- !u!1 &7840292162133904058
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +376,7 @@ GameObject:
   - component: {fileID: 7840292162145636972}
   - component: {fileID: 7840292162145636973}
   - component: {fileID: 928016210609069419}
+  - component: {fileID: 2909264097015642164}
   m_Layer: 0
   m_Name: PataShip
   m_TagString: Boatbody
@@ -488,6 +490,7 @@ MonoBehaviour:
   - {fileID: 0}
   manager: {fileID: 0}
   enemy: 0
+  runAway: 0
   check: 0
   CannonBallPrefab: {fileID: 2501402490172963987, guid: 6cf9d983923f144efbcd7c98b8ec1870,
     type: 3}
@@ -502,6 +505,22 @@ MonoBehaviour:
   loopIdle: 3
   health: {fileID: 0}
   currentHeath: 100
+--- !u!208 &2909264097015642164
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7840292162145636980}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7840292162165431402
 GameObject:
   m_ObjectHideFlags: 0
