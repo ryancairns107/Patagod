@@ -492,7 +492,7 @@ MonoBehaviour:
   enemy: 0
   runAway: 0
   check: 0
-  CannonBallPrefab: {fileID: 2501402490172963987, guid: 6cf9d983923f144efbcd7c98b8ec1870,
+  CannonBallPrefab: {fileID: 2501402490172963987, guid: 30eafa464a4d24feab3e3ab9180685de,
     type: 3}
   CannonFrontSpawnPoint: {fileID: 7840292162133904061}
   CannonLeftSpawnPoint: {fileID: 7840292163512383880}
