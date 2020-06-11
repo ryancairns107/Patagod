@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class jeroenAI : MonoBehaviour
+public class JeroenAI : MonoBehaviour
 {
     public GameObject thisShip;
     public List<GameObject> Targets;
@@ -17,6 +17,7 @@ public class jeroenAI : MonoBehaviour
     public shiphealth healthBar;
     public int ballDamage;
     public int cannonAmmo;
+    public bool canShoot;
     public ParticleSystem particleSys;
     public NavMeshAgent navAgent;
     public GameObject CannonBall = null;
@@ -86,7 +87,7 @@ public class jeroenAI : MonoBehaviour
             }
             transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 0.5f * Time.deltaTime);
 
-            if (cannonAmmo > 0)
+            if (cannonAmmo > 0 && canShoot == true)
             {
                 switch (angle)
                 {
@@ -138,34 +139,43 @@ public class jeroenAI : MonoBehaviour
 
         if (dir > 0f)
         {
-            return 1f;
+            return 1;
         }
         else if (dir < 0f)
         {
-            return -1f;
+            return -1;
         }
         else
         {
-            return 0f;
+            return 0;
         }
     }
     public IEnumerator shootRight()
     {
         GameObject newCannonBall = Instantiate(CannonBall, CannonRightSpawnPoint.position, CannonRightSpawnPoint.rotation);
         cannonAmmo -= 1;
-        yield return new WaitForFixedUpdate();
+        StartCoroutine(shootCooldown());
+        yield return null;
     }
     public IEnumerator shootBack()
     {
         GameObject newCannonBall = Instantiate(CannonBall, CannonBackSpawnPoint.position, CannonBackSpawnPoint.rotation);
         cannonAmmo -= 1;
-        yield return new WaitForFixedUpdate();
+        StartCoroutine(shootCooldown());
+        yield return null;
     }
     public IEnumerator shootLeft()
     {
-        GameObject newCannonBall = Instantiate(CannonBall, CannonRightSpawnPoint.position, CannonRightSpawnPoint.rotation);
+        GameObject newCannonBall = Instantiate(CannonBall, CannonLeftSpawnPoint.position, CannonLeftSpawnPoint.rotation);
         cannonAmmo -= 1;
-        yield return new WaitForFixedUpdate();
+        StartCoroutine(shootCooldown());
+        yield return null;
+    }
+    public IEnumerator shootCooldown()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(3);
+        canShoot = true;
     }
 
     private void OnDrawGizmosSelected()
