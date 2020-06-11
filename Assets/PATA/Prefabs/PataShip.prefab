@@ -223,7 +223,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AIscript: {fileID: 928016210609069419}
-  doItOnce: 0
 --- !u!1 &7840292162133904058
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,8 +322,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 10
-  m_Acceleration: 10
+  m_Speed: 8
+  m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 200
   m_StoppingDistance: 0
