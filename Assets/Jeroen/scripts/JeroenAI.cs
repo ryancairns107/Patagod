@@ -25,6 +25,7 @@ public class JeroenAI : MonoBehaviour
     public Transform CannonRightSpawnPoint = null;
     public GameObject healthPickup = null;
     public GameObject ammoPickup = null;
+    public bool hasDestination = false;
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class JeroenAI : MonoBehaviour
         particleSys = GetComponent<ParticleSystem>();
         particleSys.Stop();
         canShoot = true;
+        navAgent.isStopped = true;
     }
     void Update()
     {
@@ -50,7 +52,7 @@ public class JeroenAI : MonoBehaviour
         {
             TargetShip = null;
         }
-        if (TargetShip != null)
+        if (TargetShip != null && navAgent.isStopped == true)
         {
             Vector3 posRelative = TargetShip.transform.position - transform.position;
             desiredRotation = Quaternion.LookRotation(posRelative);
@@ -87,22 +89,25 @@ public class JeroenAI : MonoBehaviour
                 }
                     
             }
-        } 
-        if (ammoPickup != null && cannonAmmo < 5)
-        {
-            navAgent.isStopped = false;
-            navAgent.destination = ammoPickup.transform.position;
-        } else
-        {
-            navAgent.isStopped = true;
         }
-        if (healthPickup != null && currentHP <= 40)
+        if (cannonAmmo <= 5 || currentHP <= 40)
         {
-            navAgent.isStopped = false;
-            navAgent.destination = healthPickup.transform.position;
-        } else
-        {
-            navAgent.isStopped = true;
+            if (cannonAmmo <= 5 && ammoPickup != null)
+            {
+                navAgent.isStopped = false;
+                navAgent.destination = ammoPickup.transform.position;
+                Debug.Log("GoForAmmo");
+            }
+            else if (currentHP <= 40 && healthPickup != null)
+            {
+                navAgent.isStopped = false;
+                navAgent.destination = healthPickup.transform.position;
+                Debug.Log("GoForHP");
+            }
+            else
+            {
+                navAgent.isStopped = true;
+            }
         }
     }
     private void Damaged(int damage)
@@ -118,7 +123,7 @@ public class JeroenAI : MonoBehaviour
             desiredRotation = transform.rotation *= Quaternion.Euler(0, -180, 0);
             transform.rotation = desiredRotation;
         }
-        if (other.gameObject.tag == "canon" || other.gameObject.tag == "Boatbody")
+        if (other.gameObject.tag == "canon" || other.gameObject.tag == "Boatbody" && other.gameObject != this)
         {
             Damaged(ballDamage);
             Debug.Log("Ship Damaged!!!");
