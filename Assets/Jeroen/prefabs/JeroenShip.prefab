@@ -787,7 +787,7 @@ GameObject:
   - component: {fileID: 7656282176022534000}
   - component: {fileID: 7656282176022534006}
   - component: {fileID: 7656282176022534007}
-  - component: {fileID: 984874801000889775}
+  - component: {fileID: 1486626689234780211}
   - component: {fileID: 7656282176022534005}
   - component: {fileID: 7656282176022534004}
   m_Layer: 0
@@ -924,7 +924,7 @@ CapsuleCollider:
   m_Height: 3.0797348
   m_Direction: 2
   m_Center: {x: -0.008166678, y: -0.111345105, z: 0.35837927}
---- !u!114 &984874801000889775
+--- !u!114 &1486626689234780211
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -939,15 +939,14 @@ MonoBehaviour:
   thisShip: {fileID: 7656282177528164528}
   Targets: []
   TargetShip: {fileID: 0}
-  sphereSize: 600
+  sphereSize: 0
   angle: 0
-  movementSpeed: 35
+  movementSpeed: 10
   currentHP: 0
   maxHP: 100
   healthBar: {fileID: 5410699804794302462}
-  ballDamage: 20
-  cannonAmmo: 20
-  canShoot: 1
+  ballDamage: 0
+  cannonAmmo: 0
   particleSys: {fileID: 7656282176022534005}
   navAgent: {fileID: 7656282176022534000}
   CannonBall: {fileID: 2501402490172963987, guid: 6cf9d983923f144efbcd7c98b8ec1870,

@@ -33,12 +33,7 @@ public class Mangerosled : MonoBehaviour
         GameObject pirateShip2 = Instantiate(PirateShipPrefab[1], SpawnPoints[1].position, SpawnPoints[1].rotation);
         GameObject pirateShip3 = Instantiate(PirateShipPrefab[2], SpawnPoints[2].position, SpawnPoints[2].rotation);
 
-        for (int i = 0; i < 3; i++)
-        {
-           
-         
-           
-        }
+       
      
       //  healthBar3 = GameObject.Find("RyanShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
 
