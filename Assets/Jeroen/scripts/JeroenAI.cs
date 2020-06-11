@@ -8,7 +8,6 @@ public class JeroenAI : MonoBehaviour
     public GameObject thisShip;
     public List<GameObject> Targets;
     public GameObject TargetShip;
-    public float sphereSize;
     Quaternion desiredRotation;
     public float angle;
     public float movementSpeed = 10;
@@ -24,43 +23,30 @@ public class JeroenAI : MonoBehaviour
     public Transform CannonBackSpawnPoint = null;
     public Transform CannonLeftSpawnPoint = null;
     public Transform CannonRightSpawnPoint = null;
+    public GameObject healthPickup = null;
+    public GameObject ammoPickup = null;
 
     private void Start()
     {
         currentHP = maxHP;
-        particleSys = GetComponentInChildren<ParticleSystem>();
+        navAgent = GetComponent<NavMeshAgent>();
+        particleSys = GetComponent<ParticleSystem>();
         particleSys.Stop();
+        canShoot = true;
     }
-    //
     void Update()
     {
-        transform.position += transform.forward * movementSpeed * Time.deltaTime;
-        RaycastHit hit;
-        if (Physics.SphereCast(thisShip.transform.position, 500, transform.forward, out hit, 1))
+        healthPickup = GameObject.FindWithTag("Health");
+        ammoPickup = GameObject.FindWithTag("Ammo");
+        if (navAgent.isStopped == true)
         {
-            if (hit.transform.gameObject.tag == "Boatbody" && hit.transform.gameObject != this.gameObject)
-            {
-                if (Targets.Contains(hit.transform.gameObject) == false)
-                {
-                    Targets.Add(hit.transform.gameObject);
-                }
-                for(int i = 0; i < Targets.Count; i++)
-                {
-                    if (Targets[i] != hit.transform.gameObject)
-                    {
-                        Targets.Clear();
-                    }
-                }
-            }
-            else
-            {
-                Targets.Remove(hit.transform.gameObject);
-            }
+            transform.position += transform.forward * movementSpeed * Time.deltaTime;
         }
-        if (Targets != null)
+        if (Targets != null && Targets.Count > 0)
         {
             TargetShip = Targets[0];
-        } else
+        }
+        else
         {
             TargetShip = null;
         }
@@ -68,8 +54,6 @@ public class JeroenAI : MonoBehaviour
         {
             Vector3 posRelative = TargetShip.transform.position - transform.position;
             desiredRotation = Quaternion.LookRotation(posRelative);
-           // desiredRotation *= Quaternion.Euler(0, -90, 0);
-          //  transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 0.5f * Time.deltaTime);
             Vector3 heading = TargetShip.transform.position - transform.position;
             angle = AngleTowards(transform.forward, heading, transform.up);
             Debug.Log(angle);
@@ -85,7 +69,7 @@ public class JeroenAI : MonoBehaviour
             {
                 desiredRotation *= Quaternion.Euler(0, -90, 0);
             }
-            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 0.5f * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 1f * Time.deltaTime);
 
             if (cannonAmmo > 0 && canShoot == true)
             {
@@ -103,6 +87,22 @@ public class JeroenAI : MonoBehaviour
                 }
                     
             }
+        } 
+        if (ammoPickup != null && cannonAmmo < 5)
+        {
+            navAgent.isStopped = false;
+            navAgent.destination = ammoPickup.transform.position;
+        } else
+        {
+            navAgent.isStopped = true;
+        }
+        if (healthPickup != null && currentHP <= 40)
+        {
+            navAgent.isStopped = false;
+            navAgent.destination = healthPickup.transform.position;
+        } else
+        {
+            navAgent.isStopped = true;
         }
     }
     private void Damaged(int damage)
@@ -125,7 +125,7 @@ public class JeroenAI : MonoBehaviour
         }
         if (other.gameObject.tag == "Ammo")
         {
-            cannonAmmo += 20;
+            cannonAmmo += 10;
         }
         if (other.gameObject.tag == "Health")
         {
@@ -177,10 +177,10 @@ public class JeroenAI : MonoBehaviour
         yield return new WaitForSeconds(3);
         canShoot = true;
     }
-
-    private void OnDrawGizmosSelected()
+    public IEnumerator rotateLeft()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, 500);
+        
+        yield return new WaitForSeconds(3);
+        canShoot = true;
     }
 }
