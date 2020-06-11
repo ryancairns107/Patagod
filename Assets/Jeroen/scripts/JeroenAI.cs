@@ -24,14 +24,16 @@ public class JeroenAI : MonoBehaviour
     public Transform CannonBackSpawnPoint = null;
     public Transform CannonLeftSpawnPoint = null;
     public Transform CannonRightSpawnPoint = null;
+    public GameObject healthPickup = null;
+    public GameObject ammoPickup = null;
 
     private void Start()
     {
         currentHP = maxHP;
         particleSys = GetComponentInChildren<ParticleSystem>();
         particleSys.Stop();
+        canShoot = true;
     }
-    //
     void Update()
     {
         transform.position += transform.forward * movementSpeed * Time.deltaTime;
@@ -68,8 +70,6 @@ public class JeroenAI : MonoBehaviour
         {
             Vector3 posRelative = TargetShip.transform.position - transform.position;
             desiredRotation = Quaternion.LookRotation(posRelative);
-           // desiredRotation *= Quaternion.Euler(0, -90, 0);
-          //  transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 0.5f * Time.deltaTime);
             Vector3 heading = TargetShip.transform.position - transform.position;
             angle = AngleTowards(transform.forward, heading, transform.up);
             Debug.Log(angle);
@@ -103,7 +103,7 @@ public class JeroenAI : MonoBehaviour
                 }
                     
             }
-        }
+        } 
     }
     private void Damaged(int damage)
     {

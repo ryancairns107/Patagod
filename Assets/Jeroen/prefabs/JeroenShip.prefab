@@ -790,7 +790,6 @@ GameObject:
   - component: {fileID: 1486626689234780211}
   - component: {fileID: 7656282176022534005}
   - component: {fileID: 7656282176022534004}
-  - component: {fileID: -6604433510450969313}
   m_Layer: 0
   m_Name: JeroenShip
   m_TagString: Boatbody
@@ -937,24 +936,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b1510b882b4544aa93548f67d00673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisShip: {fileID: 0}
-  Targets: []
+  thisShip: {fileID: 7656282177528164528}
+  Targets:
+  - {fileID: 0}
   TargetShip: {fileID: 0}
   sphereSize: 0
   angle: 0
-  movementSpeed: 10
+  movementSpeed: 35
   currentHP: 0
   maxHP: 100
-  healthBar: {fileID: 0}
-  ballDamage: 0
-  cannonAmmo: 0
-  canShoot: 0
-  particleSys: {fileID: 0}
-  navAgent: {fileID: 0}
-  CannonBall: {fileID: 0}
-  CannonBackSpawnPoint: {fileID: 0}
-  CannonLeftSpawnPoint: {fileID: 0}
-  CannonRightSpawnPoint: {fileID: 0}
+  healthBar: {fileID: 5410699804794302462}
+  ballDamage: 20
+  cannonAmmo: 20
+  canShoot: 1
+  particleSys: {fileID: 7656282176022534005}
+  navAgent: {fileID: 7656282176022534000}
+  CannonBall: {fileID: 2501402490172963987, guid: 6cf9d983923f144efbcd7c98b8ec1870,
+    type: 3}
+  CannonBackSpawnPoint: {fileID: 7656282176010801063}
+  CannonLeftSpawnPoint: {fileID: 7656282177456127122}
+  CannonRightSpawnPoint: {fileID: 7656282177460189556}
+  healthPickup: {fileID: 0}
+  ammoPickup: {fileID: 0}
 --- !u!198 &7656282176022534005
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5677,22 +5680,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!208 &-6604433510450969313
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7656282176022533998}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 2, y: 0.5, z: 2}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &7656282176037538105
 GameObject:
   m_ObjectHideFlags: 0
