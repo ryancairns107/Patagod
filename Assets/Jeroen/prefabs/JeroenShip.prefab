@@ -937,16 +937,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisShip: {fileID: 7656282177528164528}
-  Targets: []
+  Targets:
+  - {fileID: 0}
   TargetShip: {fileID: 0}
   sphereSize: 0
   angle: 0
-  movementSpeed: 10
+  movementSpeed: 35
   currentHP: 0
   maxHP: 100
   healthBar: {fileID: 5410699804794302462}
-  ballDamage: 0
-  cannonAmmo: 0
+  ballDamage: 20
+  cannonAmmo: 20
+  canShoot: 1
   particleSys: {fileID: 7656282176022534005}
   navAgent: {fileID: 7656282176022534000}
   CannonBall: {fileID: 2501402490172963987, guid: 6cf9d983923f144efbcd7c98b8ec1870,
@@ -954,6 +956,8 @@ MonoBehaviour:
   CannonBackSpawnPoint: {fileID: 7656282176010801063}
   CannonLeftSpawnPoint: {fileID: 7656282177456127122}
   CannonRightSpawnPoint: {fileID: 7656282177460189556}
+  healthPickup: {fileID: 0}
+  ammoPickup: {fileID: 0}
 --- !u!198 &7656282176022534005
 ParticleSystem:
   m_ObjectHideFlags: 0
