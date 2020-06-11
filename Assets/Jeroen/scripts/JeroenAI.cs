@@ -38,12 +38,9 @@ public class JeroenAI : MonoBehaviour
     }
     void Update()
     {
+        healthBar.health = currentHP;
         healthPickup = GameObject.FindWithTag("Health");
         ammoPickup = GameObject.FindWithTag("Ammo");
-        if (navAgent.isStopped == true)
-        {
-            transform.position += transform.forward * movementSpeed * Time.deltaTime;
-        }
         if (Targets != null && Targets.Count > 0)
         {
             TargetShip = Targets[0];
@@ -52,28 +49,55 @@ public class JeroenAI : MonoBehaviour
         {
             TargetShip = null;
         }
-        if (TargetShip != null && navAgent.isStopped == true)
+        if (TargetShip == null)
         {
+            if (ammoPickup != null)
+            {
+                navAgent.isStopped = false;
+                navAgent.destination = ammoPickup.transform.position;
+            } else if (healthPickup != null)
+            {
+                navAgent.isStopped = false;
+                navAgent.destination = healthPickup.transform.position;
+            }
+            else
+            {
+                navAgent.isStopped = true;
+            }
+        }
+        if (TargetShip != null)
+        {
+            float distanceToTarget = Vector3.Distance(TargetShip.transform.position, transform.position);
+            Debug.Log(distanceToTarget);
             Vector3 posRelative = TargetShip.transform.position - transform.position;
             desiredRotation = Quaternion.LookRotation(posRelative);
             Vector3 heading = TargetShip.transform.position - transform.position;
             angle = AngleTowards(transform.forward, heading, transform.up);
             Debug.Log(angle);
-            if (angle == 1f)
+            if (distanceToTarget <= 250)
             {
-                desiredRotation *= Quaternion.Euler(0, -90, 0);
-            }
-            else if (angle == -1f)
+                navAgent.isStopped = true;
+                navAgent.destination = gameObject.transform.position;
+                if (angle == 1f)
+                {
+                    desiredRotation *= Quaternion.Euler(0, -90, 0);
+                }
+                else if (angle == -1f)
+                {
+                    desiredRotation *= Quaternion.Euler(0, 90, 0);
+                }
+                else
+                {
+                    desiredRotation *= Quaternion.Euler(0, -90, 0);
+                }
+                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 2f * Time.deltaTime);
+            } else if (distanceToTarget > 250 && TargetShip != null)
             {
-                desiredRotation *= Quaternion.Euler(0, 90, 0);
+                navAgent.destination = TargetShip.transform.position;
+                navAgent.isStopped = false;
             }
-            else
-            {
-                desiredRotation *= Quaternion.Euler(0, -90, 0);
-            }
-            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 1f * Time.deltaTime);
 
-            if (cannonAmmo > 0 && canShoot == true)
+            if (cannonAmmo > 0 && canShoot == true && distanceToTarget <= 250)
             {
                 switch (angle)
                 {
@@ -108,6 +132,17 @@ public class JeroenAI : MonoBehaviour
             {
                 navAgent.isStopped = true;
             }
+        }
+        if (currentHP > 100)
+        {
+            currentHP = 100;
+        } else if (currentHP <= 0)
+        {
+            currentHP = 100;
+        }
+        if (navAgent.isStopped == true)
+        {
+            transform.position += transform.forward * movementSpeed * Time.deltaTime;
         }
     }
     private void Damaged(int damage)
