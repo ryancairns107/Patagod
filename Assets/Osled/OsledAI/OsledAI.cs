@@ -350,7 +350,7 @@ public class OsledAI : MonoBehaviour
         {
             currentHealth = 100;
             death += 1;
-            healthBar.SetHealth(currentHealth);
+          //  healthBar.SetHealth(100);
         }
     }
 
