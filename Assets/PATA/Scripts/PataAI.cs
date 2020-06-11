@@ -50,19 +50,19 @@ public class PataAI : MonoBehaviour
                 reload -= Time.fixedDeltaTime;
                 
             }
-            else if (reload < 0f)
+        else if (reload < 0f)
             {
                 shotFired = false;
                 reload = 5f;
             }
 
-            // timer for Idle position
-            if (resetIdle == true && loopIdle > 0f)
+         // timer for Idle position
+        if (resetIdle == true && loopIdle > 0f)
             {
                 loopIdle -= Time.fixedDeltaTime;
                 
             }
-            else if (loopIdle < 0f)
+        else if (loopIdle < 0f)
             {
                 resetIdle = false;
                 loopIdle = 3f;
@@ -73,6 +73,12 @@ public class PataAI : MonoBehaviour
             StartCoroutine(__Attack());
             StartCoroutine(__Defend());
             StartCoroutine(__RunAway());
+
+        //stop running away
+        /*if (runAway == false)
+        {
+            StopCoroutine(__RunAway());
+        }*/
 
     }
 
@@ -164,12 +170,18 @@ public class PataAI : MonoBehaviour
         if (runAway == true)
         {
            // agent.transform.Rotate(0.0f, +90.0f, 0.0f, Space.Self);
-            agent.acceleration = 200f;
+            agent.acceleration = 50f;
+            agent.speed = 50f;
             agent.SetDestination(new Vector3(0,0,0));
             Debug.Log("get away f**kers");
-        }
 
-        yield return new WaitForFixedUpdate();
+        }else if(runAway == false)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        
+
+        //yield return new WaitForFixedUpdate();
     }
 
 }
