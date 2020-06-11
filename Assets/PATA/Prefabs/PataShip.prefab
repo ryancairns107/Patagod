@@ -481,7 +481,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7840292162145636980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 163737564737f207164716f207164716, type: 3}
+  m_Script: {fileID: 11500000, guid: 163737564737f236f6d6075647964796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
@@ -492,7 +492,7 @@ MonoBehaviour:
   enemy: 0
   runAway: 0
   check: 0
-  CannonBallPrefab: {fileID: 2501402490172963987, guid: 30eafa464a4d24feab3e3ab9180685de,
+  CannonBallPrefab: {fileID: 2501402490172963987, guid: 6cf9d983923f144efbcd7c98b8ec1870,
     type: 3}
   CannonFrontSpawnPoint: {fileID: 7840292162133904061}
   CannonLeftSpawnPoint: {fileID: 7840292163512383880}
@@ -503,7 +503,7 @@ MonoBehaviour:
   IdlePosition: {x: 0, y: 0, z: 0}
   resetIdle: 0
   loopIdle: 3
-  health: {fileID: 0}
+  health: {fileID: 7840292162663512392}
   currentHeath: 100
 --- !u!208 &2909264097015642164
 NavMeshObstacle:
@@ -1538,7 +1538,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   fill: {fileID: 7840292163269414741}
   startvalue: 100
-  health: 0
+  health: 100
 --- !u!1 &7840292162693566828
 GameObject:
   m_ObjectHideFlags: 0

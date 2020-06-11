@@ -130,7 +130,8 @@ public class OsledAI : MonoBehaviour
         {
             // moved = chose();
            // transform.rotation = Quaternion.LookRotation(moved);
-            int rotLorR = Random.Range(0,1 );
+            int rotLorR = Random.Range(0,2 );
+            
             if (rotLorR == 0)
             {
                 transform.Rotate(transform.up * 90);
@@ -218,7 +219,7 @@ public class OsledAI : MonoBehaviour
     Vector3 chose()
     {
         System.Random ran = new System.Random();
-        int i = ran.Next(0, 1);
+        int i = ran.Next(0, 2);
         Vector3 Teep = new Vector3();
         if (i == 0)
         {
