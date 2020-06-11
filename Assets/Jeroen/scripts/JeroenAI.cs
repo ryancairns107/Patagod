@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class JeroenAI : MonoBehaviour
+public class jeroenAI : MonoBehaviour
 {
     public GameObject thisShip;
     public List<GameObject> Targets;
