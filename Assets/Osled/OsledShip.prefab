@@ -5259,7 +5259,7 @@ MonoBehaviour:
   hmm:
     serializedVersion: 2
     m_Bits: 512
-  maxdis: 20
+  maxdis: 30
   moved: {x: 0, y: 0, z: 0}
   moveforce: 50
   Lookout: {fileID: 2987455127896231989}

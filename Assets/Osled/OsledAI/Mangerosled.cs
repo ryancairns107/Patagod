@@ -23,6 +23,7 @@ public class Mangerosled : MonoBehaviour
     public float GameTimer;
     public GameObject board;
     public bool canrespawn;
+    public Text textbox;
 
 
     // Start is called before the first frame update
@@ -90,15 +91,17 @@ public class Mangerosled : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        textbox = GameObject.Find("Main Camera/Canvas/Timer").GetComponent<Text>();
         GameTimer -=Time.deltaTime;
+        textbox.text = "Timer"+"  " + Mathf.Round(GameTimer) + "  S" ;
         // Ryanhealth = healthBar3.health;
-        
+
         /* if (Ryanhealth <= 0)
          {
             // RyanDeath += 1;
              Ryanhealth = 100;
          }*/
-      
+
     }
 
    
