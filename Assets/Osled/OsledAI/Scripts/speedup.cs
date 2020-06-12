@@ -9,7 +9,7 @@ public class speedup : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            Time.timeScale += 2F;
+            Time.timeScale = 4F;
         }
         if (Input.GetKey(KeyCode.S))
         {

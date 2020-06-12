@@ -47,7 +47,7 @@ public class PataAI : MonoBehaviour
   
     public int Jeroenkill;
     public int Osledkill;
-    public int kill;
+    
 
     void Start()
     {

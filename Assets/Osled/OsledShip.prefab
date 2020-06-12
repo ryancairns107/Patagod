@@ -1397,7 +1397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2987455126811002594}
-  - component: {fileID: 2987455126811002597}
+  - component: {fileID: 6847528962145209517}
   m_Layer: 0
   m_Name: PirateShip(Clone)
   m_TagString: Untagged
@@ -1413,7 +1413,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2987455126811002595}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.815, z: 0}
+  m_LocalPosition: {x: 0, y: -0.56, z: 0}
   m_LocalScale: {x: 0.04103911, y: 0.04103911, z: 0.04103911}
   m_Children:
   - {fileID: 2987455127415737557}
@@ -1427,7 +1427,7 @@ Transform:
   m_Father: {fileID: 2987455128124713744}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2987455126811002597
+--- !u!54 &6847528962145209517
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5111,6 +5111,7 @@ GameObject:
   - component: {fileID: 2987455128124713749}
   - component: {fileID: 2987455128124713751}
   - component: {fileID: 2987455128124713750}
+  - component: {fileID: 8291325879480073953}
   m_Layer: 0
   m_Name: OsledShip
   m_TagString: Boatbody
@@ -10003,6 +10004,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!65 &8291325879480073953
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987455128124713740}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0481966, z: 1}
+  m_Center: {x: 0, y: -0.02409825, z: 0}
 --- !u!1 &2987455128136053698
 GameObject:
   m_ObjectHideFlags: 0

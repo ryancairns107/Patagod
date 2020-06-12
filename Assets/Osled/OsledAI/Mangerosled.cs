@@ -67,12 +67,12 @@ public class Mangerosled : MonoBehaviour
             
              board.SetActive(true);
             Time.timeScale = 0F;
-            
+            Endgame();
 
         }
         // runs kill and end game script to input kills and death values
-        Endgame();
-        killing();
+        //Endgame();
+       
         healthBar = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
         healthBar1 = GameObject.Find("PataShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
         healthBar2 = GameObject.Find("JeroenShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
@@ -147,17 +147,13 @@ public class Mangerosled : MonoBehaviour
   
 
     }
-    void killing()
-    {
-       
-
-    }
+ 
     void Endgame()
     {
         // calculate death and kills from all the AI scripts and displays them on the leader board
-        Patakill = GameObject.Find("OsledShip(Clone)").GetComponent<OsledAI>().Patakill + GameObject.Find("OsledShip(Clone)").GetComponent<JeroenAI>().PataKills;
-        Jeroenkill = GameObject.Find("OsledShip(Clone)").GetComponent<OsledAI>().Jeroenkill+ GameObject.Find("PataShip(Clone)").GetComponent<PataAI>().Jeroenkill;
-        Osledkill = GameObject.Find("PataShip(Clone)").GetComponent<PataAI>().Osledkill + GameObject.Find("PataShip(Clone)").GetComponent<JeroenAI>().OsledKills;
+        Patakill = GameObject.Find("OsledShip(Clone)").GetComponent<OsledAI>().Patakill + GameObject.Find("JeroenShip(Clone)").GetComponent<JeroenAI>().PataKills;
+        Jeroenkill = GameObject.Find("OsledShip(Clone)").GetComponent<OsledAI>().Jeroenkill + GameObject.Find("PataShip(Clone)").GetComponent<PataAI>().Jeroenkill;
+        Osledkill = GameObject.Find("PataShip(Clone)").GetComponent<PataAI>().Osledkill + GameObject.Find("JeroenShip(Clone)").GetComponent<JeroenAI>().OsledKills;
 
         OsledDeaths = all[0].GetComponent<Text>();
             OsledKills = all[1].GetComponent<Text>();

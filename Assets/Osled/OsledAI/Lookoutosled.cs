@@ -60,19 +60,19 @@ public class Lookoutosled : MonoBehaviour
         {
             // __FireFront(1);
             cannons -= 1;
-            StartCoroutine(__FireFront(0));
+            StartCoroutine(__FireFront(1));
             
         }
         if (shoot == true && ischeck == 90)
         {
            // __FireRight(1);
-            StartCoroutine(__FireRight(0));
+            StartCoroutine(__FireRight(1));
             cannons -= 1;
         }
         if (shoot == true && ischeck == 270)
         {
            // __FireLeft(1);
-            StartCoroutine(__FireLeft(0));
+            StartCoroutine(__FireLeft(1));
             // ship loses cannons on every fired shot and checks the angle before firing to allow the ship to fire from certain diraction
             cannons -= 1;
         }
