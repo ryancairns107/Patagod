@@ -33,6 +33,8 @@ public class OsledAI : MonoBehaviour
     private float RotationSpeed = 180f;
     private ParticleSystem particles;
     public int death;
+    public int Jeroenkill;
+    public int Patakill;
     public int kill;
     public Text textdeath;
     public Text textkill;
@@ -401,6 +403,14 @@ public class OsledAI : MonoBehaviour
         {
             cannons.cannons += 10;
             _navMeshAgent.enabled = false;
+        }
+        if(other.gameObject.tag == "Pata"&& currentHealth <= 20)
+        {
+            Patakill += 1;
+        }
+        if (other.gameObject.tag == "JaroenCannon" && currentHealth <= 20)
+        {
+            Jeroenkill += 1;
         }
 
 
