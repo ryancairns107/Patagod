@@ -948,6 +948,9 @@ MonoBehaviour:
   Rocks:
     serializedVersion: 2
     m_Bits: 512
+  OsledKills: 0
+  PataKills: 0
+  deathText: {fileID: 3256262389178572837}
 --- !u!198 &7656282176022534005
 ParticleSystem:
   m_ObjectHideFlags: 0

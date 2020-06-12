@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2501402490173317299}
   - component: {fileID: 2501402490176184467}
   - component: {fileID: 2501402490175218259}
-  - component: {fileID: 114323351021141692}
+  - component: {fileID: 7214206050016608885}
   - component: {fileID: 695329460}
   - component: {fileID: 695329459}
   - component: {fileID: 2609055039109319390}
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &114323351021141692
+--- !u!114 &7214206050016608885
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,8 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b09ad12e9b44425f840a91f79c97a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Osledkill: {fileID: 0}
-  health: {fileID: 0}
 --- !u!198 &695329460
 ParticleSystem:
   m_ObjectHideFlags: 0
