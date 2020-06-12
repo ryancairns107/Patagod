@@ -6,9 +6,19 @@ TagManager:
   tags:
   - Trigger
   - Boat
+<<<<<<< HEAD
   - canon
   - Boatbody
   - Destroyed
+=======
+  - Boatbody
+  - canon
+  - Destroyed
+  - Health
+  - Ammo
+  - wall
+  - Rock
+>>>>>>> Sprint-3
   layers:
   - Default
   - TransparentFX
@@ -19,8 +29,13 @@ TagManager:
   - 
   - 
   - PostProcessing
+<<<<<<< HEAD
   - wall
   - 
+=======
+  - Wall
+  - PataCam
+>>>>>>> Sprint-3
   - 
   - 
   - 
