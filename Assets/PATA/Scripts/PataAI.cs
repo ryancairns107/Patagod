@@ -9,6 +9,8 @@ public class PataAI : MonoBehaviour
     public Transform[] approach;
     public Mangerosled manager;
     public bool enemy;
+    public bool defendLeft;
+    public bool defendRight;
     public bool rotateAway;
     public bool runAway;
     public float check;
@@ -44,7 +46,7 @@ public class PataAI : MonoBehaviour
          agent.updateRotation = true;
          currentRotation = transform.rotation.y;
 
-        approach[0] = GameObject.Find("OsledShip(Clone)").transform;
+         approach[0] = GameObject.Find("OsledShip(Clone)").transform;
          approach[1] = GameObject.Find("JeroenShip(Clone)").transform;
          health = GameObject.Find("PataShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
 
@@ -179,6 +181,23 @@ public class PataAI : MonoBehaviour
     }
     public IEnumerator __Defend()
     {
+        if (defendLeft == true && cannonBallAmount != 0f && shotFired == false)
+        {
+            GameObject newInstance = Instantiate(CannonBallPrefab, CannonLeftSpawnPoint.position, CannonLeftSpawnPoint.rotation);
+            CannonBallPrefab.name = "PataCannonBall";
+            cannonBallAmount -= 1f;
+            shotFired = true;
+
+        }
+        else if (defendRight== true && cannonBallAmount != 0f && shotFired == false)
+        {
+            GameObject newInstance = Instantiate(CannonBallPrefab, CannonRightSpawnPoint.position, CannonRightSpawnPoint.rotation);
+            CannonBallPrefab.name = "PataCannonBall";
+            cannonBallAmount -= 1f;
+            shotFired = true;
+
+        }
+
         yield return new WaitForFixedUpdate();
     }
     public IEnumerator __RunAway()

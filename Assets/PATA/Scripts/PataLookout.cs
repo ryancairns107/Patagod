@@ -20,6 +20,13 @@ public class PataLookout : MonoBehaviour
         {
             AIscript.enemy = true;
             
+        }else if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && gameObject.name == "Sphere left")
+        {
+            AIscript.defendLeft = true;
+        }
+        else if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && gameObject.name == "Sphere right")
+        {
+            AIscript.defendRight = true;
         }
         else if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)" && doItOnce == false)
         {
@@ -34,6 +41,14 @@ public class PataLookout : MonoBehaviour
         if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)")
         {
             AIscript.enemy = false;
+        }
+        else if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && gameObject.name == "Sphere left")
+        {
+            AIscript.defendLeft= false;
+        }
+        else if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && gameObject.name == "Sphere right")
+        {
+            AIscript.defendRight = false;
         }
         else if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)" && doItOnce == true)
         {
