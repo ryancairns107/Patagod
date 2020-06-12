@@ -8,6 +8,9 @@ public class JeroenLookout : MonoBehaviour
     public GameObject JeroenShip;
 
     public void OnTriggerStay(Collider other)
+        /*
+         * Checks if a ship has entered the spotting range
+         */
     {
         if (other.transform.gameObject.tag == "Boatbody" && other.transform.gameObject != JeroenShip)
         { 
@@ -17,6 +20,9 @@ public class JeroenLookout : MonoBehaviour
         }
     }
     }
+    /*
+    * Checks if a ship has left the spotting range and then removes them from the spotteditems list
+    */
     public void OnTriggerExit(Collider other)
     {
         for (int i = 0; i < JeroenAI.Targets.Count; i++)
