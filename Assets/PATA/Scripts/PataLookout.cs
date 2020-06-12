@@ -37,6 +37,7 @@ public class PataLookout : MonoBehaviour
         }
         else if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)" && doItOnce == true)
         {
+            AIscript.runAway = false;
             AIscript.resetIdle = false;
             doItOnce = false;
         }

@@ -33,11 +33,10 @@ public class PataAI : MonoBehaviour
 
     public float currentRotation;
     public Vector3 changePos;
+    public float fixedRotate = 3f;
 
     public GameObject moreAmmo = null;
     public GameObject moreHealth = null;
-    public bool abort1;
-    public bool abort2;
 
     void Start()
     {
@@ -81,33 +80,25 @@ public class PataAI : MonoBehaviour
             }
 
         //quick check
-        if (moreAmmo == null)
+        if (moreAmmo != null)
         {
-            abort1 = true;
-        }
-        else
-        {
-            abort1 = false;
             moreAmmo = GameObject.FindWithTag("Ammo");
         }
 
-        if (moreHealth == null)
+        if (moreHealth != null)
         {
-            abort2 = true;
-        }
-        else
-        {
-            abort2 = false;
             moreHealth = GameObject.FindWithTag("Health");
         }
         // defense
-        if (defendLeft == true || defendRight == true || enemy == true && cannonBallAmount <= 5 && abort1 == false)
+        if (cannonBallAmount <=5 && moreAmmo != null)
         {
-            StartCoroutine(__DefendAmmo());
+            agent.SetDestination(moreAmmo.transform.position);
+            Debug.Log("PATA getting ammo");
         }
-        else if (defendLeft == true || defendRight == true || enemy == true && currentHeath <= 20 && abort2 == false)
+        else if (currentHeath <= 20 && moreHealth != null)
         {
-            StartCoroutine(__DefendHealth());
+            agent.SetDestination(moreHealth.transform.position);
+            Debug.Log("PATA getting health");
         }
 
             StartCoroutine(__Idle());
@@ -155,10 +146,15 @@ public class PataAI : MonoBehaviour
 
                 if (rotateAway == true)
                 {
-                    transform.Rotate(0, currentRotation +90, 0, Space.Self);
                     changePos = gameObject.transform.position + new Vector3(0, 0, 100);
                     agent.SetDestination(changePos);
+                    fixedRotate -= Time.fixedDeltaTime;
 
+                }
+                else if (fixedRotate < 0f)
+                {
+                    fixedRotate = 3f;
+                    rotateAway = false;
                 }
             }
             else if (manager.Jeroenhealth < manager.Osledhealth)
@@ -169,9 +165,15 @@ public class PataAI : MonoBehaviour
 
                 if (rotateAway == true)
                 {
-                    transform.Rotate(0, currentRotation + 90, 0, Space.Self);
                     changePos = gameObject.transform.position + new Vector3(0, 0, 100);
                     agent.SetDestination(changePos);
+                    fixedRotate -= Time.fixedDeltaTime;
+
+                }
+                else if (fixedRotate < 0f)
+                {
+                    fixedRotate = 3f;
+                    rotateAway = false;
                 }
             }
 
@@ -220,7 +222,7 @@ public class PataAI : MonoBehaviour
 
         yield return new WaitForFixedUpdate();
     }
-    public IEnumerator __DefendAmmo()
+    /*public IEnumerator __DefendAmmo()
     {
 
             agent.SetDestination(moreAmmo.transform.position);
@@ -236,7 +238,7 @@ public class PataAI : MonoBehaviour
             Debug.Log("PATA getting health");
 
         yield return new WaitForFixedUpdate();
-    }
+    }*/
     public IEnumerator __RunAway()
     {
         if (runAway == true && currentHeath <= 20f)
@@ -246,7 +248,7 @@ public class PataAI : MonoBehaviour
             transform.Rotate(0, currentRotation + 90, 0, Space.Self);
             changePos = gameObject.transform.position + new Vector3(0, 0, 100);
             agent.SetDestination(changePos);
-            runAway = false;
+            //runAway = false;
             Debug.Log("get away f**kers");
 
         }
