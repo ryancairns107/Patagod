@@ -109,6 +109,89 @@ MonoBehaviour:
   AIscript: {fileID: 0}
   timer: 3
   stopTime: 0
+--- !u!1 &2687264317285788471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5623113362438296809}
+  - component: {fileID: 9147020205133782483}
+  - component: {fileID: 7251500333040243968}
+  m_Layer: 0
+  m_Name: PataCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5623113362438296809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687264317285788471}
+  m_LocalRotation: {x: -0.030393872, y: -0.5690839, z: -0.021056317, w: 0.8214478}
+  m_LocalPosition: {x: 3.75, y: 0.15, z: -1.25}
+  m_LocalScale: {x: 0.04103911, y: 0.07100585, z: 0.04103911}
+  m_Children: []
+  m_Father: {fileID: 7840292162145636968}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -4.2380004, y: -69.427, z: 0}
+--- !u!20 &9147020205133782483
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687264317285788471}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.5584282, g: 0.6677816, b: 0.90588236, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 100
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 52
+  orthographic: 0
+  orthographic size: 0
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 791
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8600000, guid: 1038374d405c544658aa05f19f70f4fd, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &7251500333040243968
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687264317285788471}
+  m_Enabled: 1
 --- !u!1 &3509321113971773446
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,10 +701,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7840292162145636980}
   m_LocalRotation: {x: -0, y: 0.2156831, z: -0, w: 0.97646344}
-  m_LocalPosition: {x: -339, y: 15.9, z: -391}
+  m_LocalPosition: {x: -339, y: 20.5, z: -391}
   m_LocalScale: {x: 24.367, y: 24.367, z: 24.367}
   m_Children:
   - {fileID: 7840292163460005786}
+  - {fileID: 5623113362438296809}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 24.911001, z: 0}
@@ -1639,7 +1723,7 @@ GameObject:
   - component: {fileID: 7840292162663512406}
   - component: {fileID: 7840292162663512393}
   - component: {fileID: 7840292162663512392}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2531,7 +2615,7 @@ GameObject:
   - component: {fileID: 7840292163144645674}
   - component: {fileID: 7840292163144645676}
   - component: {fileID: 7840292163144645677}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2854,7 +2938,7 @@ GameObject:
   - component: {fileID: 7840292163269414738}
   - component: {fileID: 7840292163269414740}
   - component: {fileID: 7840292163269414741}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5083,7 +5167,7 @@ GameObject:
   - component: {fileID: 7840292163956743667}
   - component: {fileID: 7840292163956743664}
   - component: {fileID: 7840292163956743665}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
