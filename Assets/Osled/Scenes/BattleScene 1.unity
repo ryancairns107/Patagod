@@ -1038,6 +1038,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.234704, y: 8.313919, z: 8.509675}
   m_Center: {x: 0.07914793, y: 2.6441343, z: -0.18438731}
+--- !u!1 &1664590214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3571431248734160637, guid: 511990faeaadf4428964da901f8ee2fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3571431248962523106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1664590216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3571431248734160579, guid: 511990faeaadf4428964da901f8ee2fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3571431248962523106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664590214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1665426274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,6 +1709,16 @@ PrefabInstance:
       propertyPath: JeroenKills
       value: 
       objectReference: {fileID: 1938800755}
+    - target: {fileID: 3571431248416543581, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: Winner
+      value: 
+      objectReference: {fileID: 1664590216}
+    - target: {fileID: 3571431248416543581, guid: 511990faeaadf4428964da901f8ee2fb,
+        type: 3}
+      propertyPath: Winners
+      value: 
+      objectReference: {fileID: 1664590214}
     - target: {fileID: 3571431248416543582, guid: 511990faeaadf4428964da901f8ee2fb,
         type: 3}
       propertyPath: m_Name

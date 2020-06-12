@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngineInternal;
 
+
 public class Mangerosled : MonoBehaviour
 {
     public GameObject[] PirateShipPrefab ;
@@ -33,6 +34,8 @@ public class Mangerosled : MonoBehaviour
     public Text textbox;
     public Text OsledDeaths;
     public Text OsledKills;
+  
+
 
     public Text PataDeaths;
     public Text PataKills;
@@ -43,6 +46,9 @@ public class Mangerosled : MonoBehaviour
 
     public GameObject cam;
     public GameObject cam2;
+    public Text Winner;
+    public GameObject Winners;
+  
 
 
     // Start is called before the first frame update
@@ -172,6 +178,27 @@ public class Mangerosled : MonoBehaviour
 
             JeroenDeahts.text = "" + JeroenDeath;
             JeroenKills.text = ""+ Jeroenkill;
+        float P1= (float)Patakill / PataDeath;
+     float O2= (float)Osledkill / OsledDeath;
+     float J3= (float)Jeroenkill / JeroenDeath;
+    Winner = Winners.GetComponent<Text>();
+        
+        if (P1> O2 && P1 > J3)
+        {
+            
+            Winner.text = "Pata Ship Wins";
+        }
+        if (O2 > P1 && O2 > J3)
+        {
+        
+            Winner.text = "Osled Ship Wins";
+        }
+        if (J3 > O2 && J3 > P1)
+        {
+           
+            Winner.text = "Jeroen Ship Wins";
+        }
+
     }
 
    
