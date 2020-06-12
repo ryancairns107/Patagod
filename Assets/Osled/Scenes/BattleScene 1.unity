@@ -106,21 +106,21 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 20
-    agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentRadius: 5
+    agentHeight: 5
+    agentSlope: 39.04
+    agentClimb: 3
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 6.6666665
+    cellSize: 1.6666666
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 4237859ab3c1ab14ab108bb040c15597, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: bd73d68395890fe4eb337abbd6e59ac8, type: 2}
 --- !u!1 &11411512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,6 +1720,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8556871038473712484, guid: e3b837bec9b085246a42a23300391ab2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8556871038601782040, guid: e3b837bec9b085246a42a23300391ab2,
         type: 3}
       propertyPath: m_Name
@@ -1779,6 +1784,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556871039898215728, guid: e3b837bec9b085246a42a23300391ab2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3b837bec9b085246a42a23300391ab2, type: 3}
