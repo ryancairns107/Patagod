@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class JeroenAI : MonoBehaviour
 {
@@ -30,6 +31,10 @@ public class JeroenAI : MonoBehaviour
     private bool isRotating = false;
     private bool terrainAvoidance = false;
     public LayerMask Rocks;
+    public int OsledKills;
+    public int PataKills;
+    public Text deathText;
+    private bool gettingStuff = false;
 
     private void Start()
     {
@@ -44,6 +49,7 @@ public class JeroenAI : MonoBehaviour
     {
         healthPickup = GameObject.FindWithTag("Health");
         ammoPickup = GameObject.FindWithTag("Ammo");
+        deathText.text = "" + deaths;
         if (Targets != null && Targets.Count > 0)
         {
             TargetShip = Targets[0];
@@ -65,14 +71,14 @@ public class JeroenAI : MonoBehaviour
                 navAgent.destination = gameObject.transform.position;
             }
         }
-        if (TargetShip != null)
+        if (TargetShip != null && cannonAmmo > 5 && currentHP > 20 && terrainAvoidance == false)
         {
             float distanceToTarget = Vector3.Distance(TargetShip.transform.position, transform.position);
             Vector3 posRelative = TargetShip.transform.position - transform.position;
             desiredRotation = Quaternion.LookRotation(posRelative);
             Vector3 heading = TargetShip.transform.position - transform.position;
             angle = AngleTowards(transform.forward, heading, transform.up);
-            if (distanceToTarget <= 250 && navAgent.isStopped == false)
+            if (distanceToTarget <= 250 && terrainAvoidance == false)
             {
                 navAgent.isStopped = true;
                 navAgent.destination = gameObject.transform.position;
@@ -112,17 +118,19 @@ public class JeroenAI : MonoBehaviour
                     
             }
         }
-        if (cannonAmmo <= 5 || currentHP <= 40)
+        if (cannonAmmo <= 5 || currentHP <= 20)
         {
             if (cannonAmmo <= 5 && ammoPickup != null && TargetShip != null)
             {
                 TargetShip = null;
+                desiredRotation = transform.rotation;
                 navAgent.isStopped = false;
                 navAgent.destination = ammoPickup.transform.position;
             }
-            else if (currentHP <= 40 && healthPickup != null)
+            else if (currentHP <= 20 && healthPickup != null)
             {
                 TargetShip = null;
+                desiredRotation = transform.rotation;
                 navAgent.isStopped = false;
                 navAgent.destination = healthPickup.transform.position;
             }
@@ -147,13 +155,12 @@ public class JeroenAI : MonoBehaviour
             if (navAgent.isStopped == true && TargetShip == null)
             {  
                 StartCoroutine(rotateIdle());
-                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 2f * Time.deltaTime);
             }
         } else
         {
             StopCoroutine(rotateIdle());
         }
-        if (Physics.Raycast(transform.position, transform.forward, 100, Rocks))
+        if (Physics.Raycast(transform.position, transform.forward, 100, Rocks) && navAgent.isStopped == true)
         {
             StartCoroutine(terrainEncounter());
             Debug.Log("terrain detected");
@@ -176,6 +183,14 @@ public class JeroenAI : MonoBehaviour
             Damaged(ballDamage);
             healthBar.SetHealth(currentHP);
             Debug.Log("Ship Damaged!!!");
+            if (currentHP < 20 && (other.gameObject.name == "PataCannonBall(Clone)" || other.gameObject.name == "PataShip(Clone)"))
+            {
+                PataKills += 1;
+            }
+            if (currentHP < 20 && (other.gameObject.name == "OsledCannonBall(Clone)" || other.gameObject.name == "OsledShip(Clone)"))
+            {
+                OsledKills += 1;
+            }
         }
         if (other.gameObject.tag == "Ammo")
         {
@@ -233,7 +248,7 @@ public class JeroenAI : MonoBehaviour
     }
     public IEnumerator rotateIdle()
     {
-        if(isRotating == false )
+        if(isRotating == false && navAgent.isStopped == true)
         {
             desiredRotation = transform.rotation;
             isRotating = true;
@@ -258,20 +273,19 @@ public class JeroenAI : MonoBehaviour
     {
         if (terrainAvoidance == false)
         {
+            Debug.Log("terrain avoiding");
             desiredRotation = transform.rotation;
             terrainAvoidance = true;
             int rotNum = Random.Range(0, 2);
             if (rotNum == 0 && TargetShip == null)
             {
-                desiredRotation *= Quaternion.Euler(0, -90, 0);
-                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 2f * Time.deltaTime);
+                desiredRotation = transform.rotation *= Quaternion.Euler(0, -90, 0);
             }
             else if (rotNum == 1 && TargetShip == null)
             {
-                desiredRotation *= Quaternion.Euler(0, 90, 0);
-                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 2f * Time.deltaTime);
+                desiredRotation = transform.rotation *= Quaternion.Euler(0, -90, 0);
             }
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1f);
             terrainAvoidance = false;
         }
     }
