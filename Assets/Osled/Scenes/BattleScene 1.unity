@@ -127,7 +127,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5285994433114433919}
   m_PrefabAsset: {fileID: 0}
---- !u!208 &23018376
+--- !u!208 &23018381
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,7 +137,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 5.117, y: 0.4, z: 5.117}
+  m_Extents: {x: 7, y: 0.4, z: 7}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -149,7 +149,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5285994433114433919}
   m_PrefabAsset: {fileID: 0}
---- !u!208 &166176873
+--- !u!208 &166176878
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,7 +159,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 5.117, y: 0.4, z: 5.117}
+  m_Extents: {x: 7, y: 0.4, z: 7}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -171,7 +171,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5285994433114433919}
   m_PrefabAsset: {fileID: 0}
---- !u!208 &243079906
+--- !u!208 &243079910
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,7 +181,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 5.117, y: 0.4, z: 5.117}
+  m_Extents: {x: 7, y: 0.4, z: 7}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -193,7 +193,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5285994433114433919}
   m_PrefabAsset: {fileID: 0}
---- !u!208 &523972204
+--- !u!208 &523972207
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5285994433114433919}
   m_PrefabAsset: {fileID: 0}
---- !u!208 &994884933
+--- !u!208 &994884938
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,7 +225,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 5.117, y: 0.4, z: 5.117}
+  m_Extents: {x: 7, y: 0.4, z: 7}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -237,7 +237,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5285994433114433919}
   m_PrefabAsset: {fileID: 0}
---- !u!208 &1253930799
+--- !u!208 &1253930804
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,7 +247,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 5.117, y: 0.4, z: 5.117}
+  m_Extents: {x: 7, y: 0.4, z: 7}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -316,7 +316,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5285994433114433919}
   m_PrefabAsset: {fileID: 0}
---- !u!208 &1410592508
+--- !u!208 &1410592513
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,7 +326,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 5.117, y: 0.4, z: 5.117}
+  m_Extents: {x: 7, y: 0.4, z: 7}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -430,7 +430,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5285994433114433919}
   m_PrefabAsset: {fileID: 0}
---- !u!208 &1650763210
+--- !u!208 &1650763215
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -440,7 +440,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 5.117, y: 0.4, z: 5.117}
+  m_Extents: {x: 7, y: 0.4, z: 7}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -452,7 +452,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5285994433114433919}
   m_PrefabAsset: {fileID: 0}
---- !u!208 &1843701101
+--- !u!208 &1843701106
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -462,7 +462,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 5.117, y: 0.4, z: 5.117}
+  m_Extents: {x: 7, y: 0.4, z: 7}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1

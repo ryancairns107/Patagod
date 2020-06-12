@@ -69,6 +69,7 @@ public class PataAI : MonoBehaviour
             }
 
 
+
             StartCoroutine(__Idle());
             StartCoroutine(__Attack());
             StartCoroutine(__Defend());
@@ -130,6 +131,8 @@ public class PataAI : MonoBehaviour
             {
                 check = 3;
 
+                    agent.acceleration = 8f;
+                    agent.speed = 8f;
                     IdlePosition = new Vector3(Random.Range(-200.0f, 200.0f), 0, Random.Range(-200.0f, 200.0f));
                     agent.SetDestination(IdlePosition);
                     Debug.Log("Pata IDLE");
@@ -174,14 +177,10 @@ public class PataAI : MonoBehaviour
             agent.speed = 50f;
             agent.SetDestination(new Vector3(0,0,0));
             Debug.Log("get away f**kers");
+            
 
-        }else if(runAway == false)
-        {
-            yield return new WaitForFixedUpdate();
         }
-        
-
-        //yield return new WaitForFixedUpdate();
+        yield return new WaitForSeconds(0.01f);      
     }
 
 }

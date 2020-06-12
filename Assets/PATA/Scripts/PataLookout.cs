@@ -5,7 +5,7 @@ using UnityEngine;
 public class PataLookout : MonoBehaviour
 {
     public PataAI AIscript;
-    //public bool doItOnce;
+    public bool doItOnce;
     //public float timer = 1f;
 
     void FixedUpdate()
@@ -15,28 +15,37 @@ public class PataLookout : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Boatbody"))
+        if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)")
         {
             AIscript.enemy = true;
 
-        } 
+        }
+        else if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)" && doItOnce == false)
+        {
+            AIscript.runAway = true;
+            doItOnce = true;
+            //timer -= Time.fixedDeltaTime;
+           AIscript.resetIdle = true;
+        }
+        else if (doItOnce == true)
+        {
+            AIscript.resetIdle = false;
+            AIscript.runAway = false;
+            doItOnce = false;
+        }
     }
 
     void OnTriggerExit(Collider col)
     {
-        if (col.CompareTag("Boatbody"))
+        if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)")
         {
             AIscript.enemy = false;
-        } /*else if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)" && doItOnce == true)
-        {
-            AIscript.runAway = false;
-            doItOnce = false;
-        }*/
+        }
     }
 
-    private void OnTriggerStay(Collider col)
+   /* private void OnTriggerStay(Collider col)
     {
-        if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)" /*&& doItOnce == false*/)
+        if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)")
         {
             AIscript.runAway = true;
             //timer -= Time.fixedDeltaTime;
@@ -45,7 +54,7 @@ public class PataLookout : MonoBehaviour
         {
             AIscript.runAway = false;
         }
-    }
+    }*/
 }
 
       /*  } else if (col.CompareTag("canon") && timer > 0f)
