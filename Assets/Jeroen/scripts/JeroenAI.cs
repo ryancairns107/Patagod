@@ -26,6 +26,7 @@ public class JeroenAI : MonoBehaviour
     public GameObject healthPickup = null;
     public GameObject ammoPickup = null;
     public bool hasDestination = false;
+    public int deaths = 0;
 
     private void Start()
     {
@@ -68,7 +69,6 @@ public class JeroenAI : MonoBehaviour
         if (TargetShip != null)
         {
             float distanceToTarget = Vector3.Distance(TargetShip.transform.position, transform.position);
-            Debug.Log(distanceToTarget);
             Vector3 posRelative = TargetShip.transform.position - transform.position;
             desiredRotation = Quaternion.LookRotation(posRelative);
             Vector3 heading = TargetShip.transform.position - transform.position;
@@ -120,13 +120,11 @@ public class JeroenAI : MonoBehaviour
             {
                 navAgent.isStopped = false;
                 navAgent.destination = ammoPickup.transform.position;
-                Debug.Log("GoForAmmo");
             }
             else if (currentHP <= 40 && healthPickup != null)
             {
                 navAgent.isStopped = false;
                 navAgent.destination = healthPickup.transform.position;
-                Debug.Log("GoForHP");
             }
             else
             {
