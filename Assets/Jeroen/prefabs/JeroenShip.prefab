@@ -883,8 +883,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 30
-  m_Acceleration: 8
+  m_Speed: 40
+  m_Acceleration: 40
   avoidancePriority: 50
   m_AngularSpeed: 80
   m_StoppingDistance: 0
@@ -950,7 +950,7 @@ MonoBehaviour:
   canShoot: 1
   particleSys: {fileID: 7656282176022534005}
   navAgent: {fileID: 7656282176022534000}
-  CannonBall: {fileID: 2501402490172963987, guid: 6cf9d983923f144efbcd7c98b8ec1870,
+  CannonBall: {fileID: 2501402490172963987, guid: 98646aa7f36ce894c9ca53cf03da79e4,
     type: 3}
   CannonBackSpawnPoint: {fileID: 7656282176010801063}
   CannonLeftSpawnPoint: {fileID: 7656282177456127122}
@@ -959,6 +959,9 @@ MonoBehaviour:
   ammoPickup: {fileID: 0}
   hasDestination: 0
   deaths: 0
+  Rocks:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!198 &7656282176022534005
 ParticleSystem:
   m_ObjectHideFlags: 0

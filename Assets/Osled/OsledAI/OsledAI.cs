@@ -82,12 +82,14 @@ public class OsledAI : MonoBehaviour
 
         if (currentHealth <= 20f && gotoammoo == false && _distanitionG != null)
         {
+            movespeed = 90;
             gotohealth = true;
             _navMeshAgent.enabled = true;
             setdis();
         }
         if (_distanitionG == null || currentHealth >= 21f)
         {
+            movespeed = 60;
             _navMeshAgent.enabled = false;
             gotohealth = false;
         }
@@ -404,11 +406,11 @@ public class OsledAI : MonoBehaviour
             cannons.cannons += 10;
             _navMeshAgent.enabled = false;
         }
-        if(other.gameObject.tag == "Pata"&& currentHealth <= 20)
+        if((other.gameObject.name == "PataCannonBall(Clone)" || other.gameObject.name == "PataShip(Clone)") && currentHealth <= 20)
         {
             Patakill += 1;
         }
-        if (other.gameObject.tag == "JaroenCannon" && currentHealth <= 20)
+        if ((other.gameObject.tag == "JereonCannonBall(Clone)" || other.gameObject.name == "JeroenShip(Clone)") && currentHealth <= 20)
         {
             Jeroenkill += 1;
         }
