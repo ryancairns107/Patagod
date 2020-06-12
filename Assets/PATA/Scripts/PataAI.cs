@@ -131,8 +131,8 @@ public class PataAI : MonoBehaviour
             {
                 check = 3;
 
-                    agent.acceleration = 8f;
-                    agent.speed = 8f;
+                    agent.acceleration = 50f;
+                    agent.speed = 50f;
                     IdlePosition = new Vector3(Random.Range(-200.0f, 200.0f), 0, Random.Range(-200.0f, 200.0f));
                     agent.SetDestination(IdlePosition);
                     Debug.Log("Pata IDLE");
@@ -173,14 +173,15 @@ public class PataAI : MonoBehaviour
         if (runAway == true)
         {
            // agent.transform.Rotate(0.0f, +90.0f, 0.0f, Space.Self);
-            agent.acceleration = 50f;
-            agent.speed = 50f;
+            agent.acceleration = 300f;
+            agent.speed = 300f;
             agent.SetDestination(new Vector3(0,0,0));
+            runAway = false;
             Debug.Log("get away f**kers");
-            
 
         }
-        yield return new WaitForSeconds(0.01f);      
+
+        yield return new WaitForSeconds(0.1f);
     }
 
 }

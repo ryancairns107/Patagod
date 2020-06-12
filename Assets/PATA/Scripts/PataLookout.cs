@@ -6,7 +6,6 @@ public class PataLookout : MonoBehaviour
 {
     public PataAI AIscript;
     public bool doItOnce;
-    //public float timer = 1f;
 
     void FixedUpdate()
     {
@@ -24,14 +23,7 @@ public class PataLookout : MonoBehaviour
         {
             AIscript.runAway = true;
             doItOnce = true;
-            //timer -= Time.fixedDeltaTime;
-           AIscript.resetIdle = true;
-        }
-        else if (doItOnce == true)
-        {
-            AIscript.resetIdle = false;
-            AIscript.runAway = false;
-            doItOnce = false;
+            AIscript.resetIdle = true;
         }
     }
 
@@ -40,6 +32,11 @@ public class PataLookout : MonoBehaviour
         if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)")
         {
             AIscript.enemy = false;
+        }
+        else if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)" && doItOnce == true)
+        {
+            AIscript.resetIdle = false;
+            doItOnce = false;
         }
     }
 

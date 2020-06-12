@@ -5112,7 +5112,6 @@ GameObject:
   - component: {fileID: 2987455128124713749}
   - component: {fileID: 2987455128124713751}
   - component: {fileID: 2987455128124713750}
-  - component: {fileID: 8037079956458995691}
   m_Layer: 0
   m_Name: OsledShip
   m_TagString: Boatbody
@@ -10016,22 +10015,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!208 &8037079956458995691
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2987455128124713740}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 2, y: 0.5, z: 2}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &2987455128136053698
 GameObject:
   m_ObjectHideFlags: 0

@@ -144,8 +144,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7840292162093534243}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 152}
-  m_LocalScale: {x: 200, y: 200, z: 200}
+  m_LocalPosition: {x: 0, y: 16.9, z: 6.1}
+  m_LocalScale: {x: 300, y: 300, z: 300}
   m_Children: []
   m_Father: {fileID: 7840292162030676300}
   m_RootOrder: 0
@@ -223,6 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AIscript: {fileID: 928016210609069419}
+  doItOnce: 0
 --- !u!1 &7840292162133904058
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +269,6 @@ GameObject:
   - component: {fileID: 7840292162145636972}
   - component: {fileID: 7840292162145636973}
   - component: {fileID: 928016210609069419}
-  - component: {fileID: 2909264097015642164}
   m_Layer: 0
   m_Name: PataShip
   m_TagString: Boatbody
@@ -322,8 +322,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 8
-  m_Acceleration: 8
+  m_Speed: 50
+  m_Acceleration: 50
   avoidancePriority: 50
   m_AngularSpeed: 200
   m_StoppingDistance: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7840292162145636980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 163737564737f236f6d6075647964796, type: 3}
+  m_Script: {fileID: 11500000, guid: 163737564737f207164716f207164716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
@@ -397,22 +397,6 @@ MonoBehaviour:
   loopIdle: 3
   health: {fileID: 0}
   currentHeath: 100
---- !u!208 &2909264097015642164
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840292162145636980}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 2, y: 1, z: 2}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &7840292162165431402
 GameObject:
   m_ObjectHideFlags: 0
