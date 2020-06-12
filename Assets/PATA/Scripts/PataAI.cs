@@ -9,6 +9,7 @@ public class PataAI : MonoBehaviour
     public Transform[] approach;
     public Mangerosled manager;
     public bool enemy;
+    public bool rotateAway;
     public bool runAway;
     public float check;
 
@@ -28,6 +29,8 @@ public class PataAI : MonoBehaviour
     public shiphealth health;
     public int currentHeath = 100;
 
+    public float currentRotation;
+    public Vector3 changePos;
 
     void Start()
     {
@@ -39,8 +42,9 @@ public class PataAI : MonoBehaviour
     void FixedUpdate()
     {
          agent.updateRotation = true;
+         currentRotation = transform.rotation.y;
 
-         approach[0] = GameObject.Find("OsledShip(Clone)").transform;
+        approach[0] = GameObject.Find("OsledShip(Clone)").transform;
          approach[1] = GameObject.Find("JeroenShip(Clone)").transform;
          health = GameObject.Find("PataShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
 
@@ -74,13 +78,6 @@ public class PataAI : MonoBehaviour
             StartCoroutine(__Attack());
             StartCoroutine(__Defend());
             StartCoroutine(__RunAway());
-
-        //stop running away
-        /*if (runAway == false)
-        {
-            StopCoroutine(__RunAway());
-        }*/
-
     }
 
     void HealthCounter(int num)
@@ -116,30 +113,46 @@ public class PataAI : MonoBehaviour
      {
         for (var i = 0; i < approach.Length; i++)
         {
-            if (manager.Osledhealth <  manager.Jeroenhealth)
+            if (manager.Osledhealth < manager.Jeroenhealth)
             {
                 agent.SetDestination(approach[0].position);
                 Debug.Log("Pata Following Osleds Ass");
                 check = 0;
+
+                if (rotateAway == true)
+                {
+                    transform.Rotate(0, currentRotation +90, 0, Space.Self);
+                    changePos = gameObject.transform.position + new Vector3(0, 0, 100);
+                    agent.SetDestination(changePos);
+
+                }
             }
             else if (manager.Jeroenhealth < manager.Osledhealth)
             {
                 agent.SetDestination(approach[1].position);
                 Debug.Log("Pata Following Slow Jeroen");
                 check = 1;
-            }else if (resetIdle == false)
+
+                if (rotateAway == true)
+                {
+                    transform.Rotate(0, currentRotation + 90, 0, Space.Self);
+                    changePos = gameObject.transform.position + new Vector3(0, 0, 100);
+                    agent.SetDestination(changePos);
+                }
+            }
+
+            else if (resetIdle == false)
             {
                 check = 3;
 
-                    agent.acceleration = 50f;
-                    agent.speed = 50f;
-                    IdlePosition = new Vector3(Random.Range(-200.0f, 200.0f), 0, Random.Range(-200.0f, 200.0f));
-                    agent.SetDestination(IdlePosition);
-                    Debug.Log("Pata IDLE");
-                    
-
+                agent.acceleration = 50f;
+                agent.speed = 50f;
+                IdlePosition = new Vector3(Random.Range(-200.0f, 200.0f), 0, Random.Range(-200.0f, 200.0f));
+                agent.SetDestination(IdlePosition);
+                Debug.Log("Pata IDLE");
                 resetIdle = true;
             }
+
         }
 
         yield return new WaitForFixedUpdate();
@@ -173,15 +186,15 @@ public class PataAI : MonoBehaviour
         if (runAway == true)
         {
            // agent.transform.Rotate(0.0f, +90.0f, 0.0f, Space.Self);
-            agent.acceleration = 300f;
-            agent.speed = 300f;
+            agent.acceleration = 250f;
+            agent.speed = 250f;
             agent.SetDestination(new Vector3(0,0,0));
             runAway = false;
             Debug.Log("get away f**kers");
 
         }
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.01f);
     }
 
 }
