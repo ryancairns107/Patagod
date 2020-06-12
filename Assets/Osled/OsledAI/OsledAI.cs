@@ -410,7 +410,7 @@ public class OsledAI : MonoBehaviour
         {
             Patakill += 1;
         }
-        if ((other.gameObject.tag == "CannonBall(Clone)" || other.gameObject.name == "JeroenShip(Clone)") && currentHealth <= 20)
+        if ((other.gameObject.tag == "JereonCannonBall(Clone)" || other.gameObject.name == "JeroenShip(Clone)") && currentHealth <= 20)
         {
             Jeroenkill += 1;
         }
