@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1768099221759653772}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 16.9, z: 3.6}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 120, y: 120, z: 120}
   m_Children: []
   m_Father: {fileID: 7840292162030676300}
   m_RootOrder: 3
@@ -107,7 +107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AIscript: {fileID: 0}
-  timer: 3
   stopTime: 0
 --- !u!1 &3509321113971773446
 GameObject:
@@ -719,6 +718,7 @@ MonoBehaviour:
   defendLeft: 0
   defendRight: 0
   rotateAway: 0
+  rotateCheck: 0
   runAway: 0
   check: 0
   CannonBallPrefab: {fileID: 2501402490172963987, guid: 30eafa464a4d24feab3e3ab9180685de,
@@ -735,10 +735,12 @@ MonoBehaviour:
   health: {fileID: 0}
   currentHeath: 100
   currentRotation: 0
+  currentPosition: 0
   changePos: {x: 0, y: 0, z: 0}
+  fixedRotate: 3
   moreAmmo: {fileID: 0}
   moreHealth: {fileID: 0}
-  abort: 0
+  self: {fileID: 7840292162145636972}
 --- !u!1 &7840292162165431402
 GameObject:
   m_ObjectHideFlags: 0

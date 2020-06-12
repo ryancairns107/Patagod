@@ -96,8 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b09ad12e9b44425f840a91f79c97a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Osledkill: {fileID: 0}
-  health: {fileID: 0}
 --- !u!198 &695329460
 ParticleSystem:
   m_ObjectHideFlags: 0

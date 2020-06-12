@@ -5,7 +5,7 @@ using UnityEngine;
 public class Detector : MonoBehaviour
 {
     public PataAI AIscript;
-    //public float timer = 3f;
+    public float timer = 3f;
     public bool stopTime;
 
     void FixedUpdate()
@@ -15,22 +15,10 @@ public class Detector : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && AIscript.rotateAway == false)
+        if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && timer > 0f)
         {
-            AIscript.transform.Rotate(0, AIscript.currentRotation + 90, 0, Space.Self);
-            AIscript.rotateAway = true;
-            //AIscript.fixedRotate = true;
-
+            AIscript.agent.SetDestination(new Vector3(0, 0, 0));
         }
     }
-
-    /*void OnTriggerExit(Collider col)
-    {
-        if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)")
-        {
-            
-            AIscript.rotateAway = false;
-        }
-    }*/
 
 }

@@ -37,9 +37,9 @@ public class PataLookout : MonoBehaviour
         }
         else if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)" && doItOnce == true)
         {
-            AIscript.runAway = false;
+            //AIscript.runAway = false;
             AIscript.resetIdle = false;
-            doItOnce = false;
+            //doItOnce = false;
         }
     }
 
@@ -56,6 +56,12 @@ public class PataLookout : MonoBehaviour
         else if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && self.name == "Sphere right")
         {
             AIscript.defendRight = false;
+        }
+        else if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)" && doItOnce == true)
+        {
+            AIscript.runAway = false;
+            //AIscript.resetIdle = false;
+            doItOnce = false;
         }
 
     }
