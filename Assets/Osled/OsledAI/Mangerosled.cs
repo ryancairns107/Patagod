@@ -16,14 +16,30 @@ public class Mangerosled : MonoBehaviour
     public float Patahealth;
     public float Jeroenhealth;
   //  public float Ryanhealth;
-    public float OsledDeath;
-    public float PataDeath;
+    public int OsledDeath;
+    public int Osledkill;
+    public int PataDeath;
+    public int Patakill;
+
     //public float RyanDeath;
-    public float JeroenDeath;
+    public int JeroenDeath;
+    public int Jeroenkill;
+
     public float GameTimer;
     public GameObject board;
     public bool canrespawn;
     public Text textbox;
+    public Text OsledDeaths;
+    public Text OsledKills;
+
+    public Text PataDeaths;
+    public Text PataKills;
+
+    public Text JeroenDeahts;
+    public Text JeroenKills;
+    public GameObject[] all;
+    
+
 
 
     // Start is called before the first frame update
@@ -43,9 +59,14 @@ public class Mangerosled : MonoBehaviour
     {
         if (GameTimer <= 0)
         {
-            board.SetActive(true);
+            
+             board.SetActive(true);
             Time.timeScale = 0F;
+            
+
         }
+        Endgame();
+        killing();
         healthBar = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
         healthBar1 = GameObject.Find("PataShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
         healthBar2 = GameObject.Find("JeroenShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
@@ -91,17 +112,40 @@ public class Mangerosled : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         textbox = GameObject.Find("Main Camera/Canvas/Timer").GetComponent<Text>();
         GameTimer -=Time.deltaTime;
         textbox.text = "Timer"+"  " + Mathf.Round(GameTimer) + "  S" ;
-        // Ryanhealth = healthBar3.health;
+  
 
-        /* if (Ryanhealth <= 0)
-         {
-            // RyanDeath += 1;
-             Ryanhealth = 100;
-         }*/
+    }
+    void killing()
+    {
+       
 
+    }
+    void Endgame()
+    {
+        Patakill = GameObject.Find("OsledShip(Clone)").GetComponent<OsledAI>().Patakill;
+        Jeroenkill = GameObject.Find("OsledShip(Clone)").GetComponent<OsledAI>().Jeroenkill;
+
+        OsledDeaths = all[0].GetComponent<Text>();
+            OsledKills = all[1].GetComponent<Text>();
+
+            OsledDeaths.text = "" + OsledDeath;
+            OsledKills.text = "" ;
+
+            PataDeaths = all[2].GetComponent<Text>();
+            PataKills = all[3].GetComponent<Text>();
+
+            PataDeaths.text = "" + PataDeath;
+            PataKills.text = ""+ Patakill;
+
+            JeroenDeahts = all[4].GetComponent<Text>();
+            JeroenKills = all[5].GetComponent<Text>();
+
+            JeroenDeahts.text = "" + JeroenDeath;
+            JeroenKills.text = ""+ Jeroenkill;
     }
 
    

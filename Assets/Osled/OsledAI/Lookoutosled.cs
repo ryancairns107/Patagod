@@ -96,7 +96,7 @@ public class Lookoutosled : MonoBehaviour
         if(CannonBackSpawnPoint.position == CannonBackSpawnPoint.position)
         {
             
-            CannonBallPrefab.name = "OsledCannon";
+         
             
         }
         anim[0].SetBool("Shoot", true); 
