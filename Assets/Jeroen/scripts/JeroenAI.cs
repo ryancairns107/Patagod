@@ -42,7 +42,6 @@ public class JeroenAI : MonoBehaviour
     }
     void Update()
     {
-        healthBar.health = currentHP;
         healthPickup = GameObject.FindWithTag("Health");
         ammoPickup = GameObject.FindWithTag("Ammo");
         if (Targets != null && Targets.Count > 0)
@@ -134,7 +133,8 @@ public class JeroenAI : MonoBehaviour
         if (currentHP > 100)
         {
             currentHP = 100;
-        } else if (currentHP <= 0)
+        }
+        else if (currentHP <= 0)
         {
             currentHP = 100;
             deaths += 1;
@@ -173,6 +173,7 @@ public class JeroenAI : MonoBehaviour
         if (other.gameObject.tag == "canon" || other.gameObject.tag == "Boatbody" && other.gameObject != this)
         {
             Damaged(ballDamage);
+            healthBar.SetHealth(currentHP);
             Debug.Log("Ship Damaged!!!");
         }
         if (other.gameObject.tag == "Ammo")
