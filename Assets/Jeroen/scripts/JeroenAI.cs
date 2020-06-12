@@ -61,7 +61,7 @@ public class JeroenAI : MonoBehaviour
         ammoPickup = GameObject.FindWithTag("Ammo");
         deathText.text = "" + deaths;
         /*
-         * This script checks if the big spherecollider/lookout has any ships inside of it and then proceeds to set it's current target to the first ship in the list.
+         * This script checks if the big spherecollider/lookout has any ships inside of it and then proceeds to set its current target to the first ship in the list.
         */
         if (Targets != null && Targets.Count > 0)
         {
@@ -89,8 +89,8 @@ public class JeroenAI : MonoBehaviour
         }
         /*
          * Here the ship checks if it has enough ammo and HP to engage, it also checks if the ship is not near any terrain.
-         * It will then proceed to rotate itself with it's side towards the target and proceed with firing it's cannons.
-         * The AI calculates whether it's target is to the left or to the right of itself and based on this it will fire the right or left cannons.
+         * It will then proceed to rotate itself with its side towards the target and proceed with firing its cannons.
+         * The AI calculates whether its target is to the left or to the right of itself and based on this it will fire the right or left cannons.
         */
         if (TargetShip != null && cannonAmmo > 5 && currentHP > 20 && terrainAvoidance == false)
         {
@@ -119,7 +119,7 @@ public class JeroenAI : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 2f * Time.deltaTime);
 
                 /*
-                 * AI calculates if it's close enough (If the target ship is too far away the shots have a higher chance of missing)
+                 * AI calculates if its close enough (If the target ship is too far away the shots have a higher chance of missing)
                 */
             } else if (distanceToTarget > 250 && TargetShip != null)
             {
@@ -147,7 +147,7 @@ public class JeroenAI : MonoBehaviour
         }
         /*
          * This part checks if either the ammo or the HP is nearing 0 
-         * It will then proceed to turn the navAgent back on and set it's destination to the ammo or health pickup respectively.
+         * It will then proceed to turn the navAgent back on and set its destination to the ammo or health pickup respectively.
          * 
          */
         if (cannonAmmo <= 5 || currentHP <= 20)
@@ -177,7 +177,7 @@ public class JeroenAI : MonoBehaviour
         {
             currentHP = 100;
         }
-        // adds in a death if HP reaches 0 and will reset it's own health to 100
+        // adds in a death if HP reaches 0 and will reset its own health to 100
         else if (currentHP <= 0)
         {
             currentHP = 100;
@@ -230,7 +230,7 @@ public class JeroenAI : MonoBehaviour
         }
         /*
          * Damage check, if the ship is colliding with a cannonball or another ship it receive 20 damage.
-         * It will also check the name of the gameobject it's colliding with and give a kill if the ship's health reaches 0
+         * It will also check the name of the gameobject its colliding with and give a kill if the ship's health reaches 0
          * when it collides.
          */
         if (other.gameObject.tag == "canon" || other.gameObject.tag == "Boatbody" && other.gameObject != this)
