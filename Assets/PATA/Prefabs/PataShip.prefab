@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6570673121075669018}
   - component: {fileID: 603235632758968688}
   - component: {fileID: 17646347292763559}
-  - component: {fileID: 1523542109915388415}
   - component: {fileID: 4635223891748905543}
   m_Layer: 0
   m_Name: Ship detector
@@ -95,21 +94,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1523542109915388415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768099221759653772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 156f7a6dbd90a4876bcdefbcce15e28e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AIscript: {fileID: 928016210609069419}
-  myShip: {fileID: 7840292162145636980}
-  doItOnce: 0
 --- !u!114 &4635223891748905543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8419924f7da455c8169c98b38a54ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AIscript: {fileID: 0}
 --- !u!1 &3509321113971773446
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AIscript: {fileID: 928016210609069419}
   myShip: {fileID: 7840292162145636980}
+  self: {fileID: 3509321113971773446}
   doItOnce: 0
 --- !u!1 &4125913691980661788
 GameObject:
@@ -339,6 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AIscript: {fileID: 928016210609069419}
   myShip: {fileID: 7840292162145636980}
+  self: {fileID: 4125913691980661788}
   doItOnce: 0
 --- !u!1 &7840292161971892030
 GameObject:
@@ -567,6 +554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AIscript: {fileID: 928016210609069419}
   myShip: {fileID: 7840292162145636980}
+  self: {fileID: 7840292162093534243}
   doItOnce: 0
 --- !u!1 &7840292162133904058
 GameObject:
@@ -726,6 +714,9 @@ MonoBehaviour:
   - {fileID: 0}
   manager: {fileID: 0}
   enemy: 0
+  defendLeft: 0
+  defendRight: 0
+  rotateAway: 0
   runAway: 0
   check: 0
   CannonBallPrefab: {fileID: 2501402490172963987, guid: 30eafa464a4d24feab3e3ab9180685de,

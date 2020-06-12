@@ -34,10 +34,14 @@ public class PataAI : MonoBehaviour
     public float currentRotation;
     public Vector3 changePos;
 
+    public GameObject moreAmmo = null;
+    public GameObject moreHealth = null;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         manager = GameObject.Find("CompetitionManager").GetComponent<Mangerosled>();
+
     }
 
 
@@ -123,7 +127,7 @@ public class PataAI : MonoBehaviour
 
                 if (rotateAway == true)
                 {
-                    transform.Rotate(0, currentRotation +90, 0, Space.Self);
+                    agent.transform.Rotate(0, currentRotation +90, 0, Space.Self);
                     changePos = gameObject.transform.position + new Vector3(0, 0, 100);
                     agent.SetDestination(changePos);
 
@@ -137,7 +141,7 @@ public class PataAI : MonoBehaviour
 
                 if (rotateAway == true)
                 {
-                    transform.Rotate(0, currentRotation + 90, 0, Space.Self);
+                    agent.transform.Rotate(0, currentRotation + 90, 0, Space.Self);
                     changePos = gameObject.transform.position + new Vector3(0, 0, 100);
                     agent.SetDestination(changePos);
                 }
@@ -168,20 +172,8 @@ public class PataAI : MonoBehaviour
             cannonBallAmount -= 1f;
             shotFired = true;
 
-        }else if (enemy == true && cannonBallAmount == 0f)
-        {
-
         }
-        else
-        {
-
-        }
-
-        yield return new WaitForFixedUpdate();
-    }
-    public IEnumerator __Defend()
-    {
-        if (defendLeft == true && cannonBallAmount != 0f && shotFired == false)
+        else if (defendLeft == true && cannonBallAmount != 0f && shotFired == false)
         {
             GameObject newInstance = Instantiate(CannonBallPrefab, CannonLeftSpawnPoint.position, CannonLeftSpawnPoint.rotation);
             CannonBallPrefab.name = "PataCannonBall";
@@ -189,7 +181,7 @@ public class PataAI : MonoBehaviour
             shotFired = true;
 
         }
-        else if (defendRight== true && cannonBallAmount != 0f && shotFired == false)
+        else if (defendRight == true && cannonBallAmount != 0f && shotFired == false)
         {
             GameObject newInstance = Instantiate(CannonBallPrefab, CannonRightSpawnPoint.position, CannonRightSpawnPoint.rotation);
             CannonBallPrefab.name = "PataCannonBall";
@@ -200,14 +192,36 @@ public class PataAI : MonoBehaviour
 
         yield return new WaitForFixedUpdate();
     }
+    public IEnumerator __Defend()
+    {
+        if (defendLeft == true || defendRight == true || enemy == true && cannonBallAmount <= 5f)
+        {
+            moreAmmo = GameObject.FindWithTag("Health");
+            agent.SetDestination(moreAmmo.transform.position);
+            Debug.Log("PATA getting ammo");
+            if (moreAmmo == null)
+            {
+
+            }
+        }
+        else if (defendLeft == true || defendRight == true || enemy == true && currentHeath <= 10f)
+        {
+            moreHealth = GameObject.FindWithTag("Ammo");
+            agent.SetDestination(moreHealth.transform.position);
+            Debug.Log("PATA getting health");
+        }
+
+        yield return new WaitForSeconds(3f);
+    }
     public IEnumerator __RunAway()
     {
-        if (runAway == true)
+        if (runAway == true && currentHeath <= 20f)
         {
-           // agent.transform.Rotate(0.0f, +90.0f, 0.0f, Space.Self);
-            agent.acceleration = 250f;
-            agent.speed = 250f;
-            agent.SetDestination(new Vector3(0,0,0));
+            agent.acceleration = 200f;
+            agent.speed = 150f;
+            agent.transform.Rotate(0, currentRotation + 90, 0, Space.Self);
+            changePos = gameObject.transform.position + new Vector3(0, 0, 100);
+            agent.SetDestination(changePos);
             runAway = false;
             Debug.Log("get away f**kers");
 

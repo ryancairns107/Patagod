@@ -6,6 +6,7 @@ public class PataLookout : MonoBehaviour
 {
     public PataAI AIscript;
     public GameObject myShip;
+    public GameObject self;
     public bool doItOnce;
 
 
@@ -16,15 +17,15 @@ public class PataLookout : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)")
+        if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && self.name == "Sphere front")
         {
             AIscript.enemy = true;
             
-        }else if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && gameObject.name == "Sphere left")
+        }else if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && self.name == "Sphere left")
         {
             AIscript.defendLeft = true;
         }
-        else if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && gameObject.name == "Sphere right")
+        else if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && self.name == "Sphere right")
         {
             AIscript.defendRight = true;
         }
@@ -38,15 +39,15 @@ public class PataLookout : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)")
+        if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && self.name == "Sphere front")
         {
             AIscript.enemy = false;
         }
-        else if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && gameObject.name == "Sphere left")
+        else if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && self.name == "Sphere left")
         {
             AIscript.defendLeft= false;
         }
-        else if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && gameObject.name == "Sphere right")
+        else if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)" && self.name == "Sphere right")
         {
             AIscript.defendRight = false;
         }
