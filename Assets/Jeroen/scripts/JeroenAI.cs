@@ -253,7 +253,7 @@ public class JeroenAI : MonoBehaviour
         }
         if (other.gameObject.tag == "Health")
         {
-            currentHP += 50;
+            currentHP += 20;
         }
     }
     /*

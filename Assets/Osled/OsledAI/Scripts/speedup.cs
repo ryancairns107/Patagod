@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class speedup : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // on button press speed up the game
   void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.W))
         {
-            Time.timeScale = 2F;
+            Time.timeScale += 2F;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            Time.timeScale = 0.5F;
+            Time.timeScale = 1F;
         }
        
        

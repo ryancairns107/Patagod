@@ -50,7 +50,7 @@ public class OsledAI : MonoBehaviour
     public bool escapeandfire;
     public GameObject[] items;
     
-   
+   // on start the ship collects data for the ship rigidbody and  the health and ammo items and sets health to be 100
     void Start()
     {
         items[0] = GameObject.Find("bottleLarge (1)");
@@ -61,20 +61,22 @@ public class OsledAI : MonoBehaviour
         moved = chose();
         currentHealth = 100;
         healthBar.SetMaxHealth(maxHealth);
+        // get partical effect and set it to disabled
         particles = GetComponentInChildren<ParticleSystem>();
         particles.Stop();
+        // get how many cannons the ship carries from LookOut script
         cannons = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Lookout/Sphere").GetComponent<Lookoutosled>();
-
+        // get the text canvas to input the death and kills gotten
         textdeath = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Canvas/death/deathcount").GetComponent<Text>();
-
+        // set a distanation of ammo and health 
         _distanitionG = GameObject.FindWithTag("Health").transform;
         _distanitionB = GameObject.FindWithTag("Ammo").transform;
 
-        //  transform.rotation = Quaternion.LookRotation(moved);
+        
     }
     void Update()
     {
-
+        // change visuals depending on the health of the ship to turn on and off sails, and start partical effects
         if (currentHealth <= 80f&& currentHealth >= 60f)
         {
             sails[0].SetActive(false);
@@ -88,11 +90,13 @@ public class OsledAI : MonoBehaviour
             particles.Play();
             sails[2].SetActive(false);
         }
+
+        // get the navmesh component to enable it and disable it if needed
         cannons = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Lookout/Sphere").GetComponent<Lookoutosled>();
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
         textdeath = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Canvas/death/deathcount").GetComponent<Text>();
         textdeath.text = "" + death;
-
+        // give actions to the AI when the health and ammo and in a certain value then enables nav mesh depending on the situation
         if (currentHealth <= 20f && gotoammoo == false && _distanitionG != null)
         {
             movespeed = 90;
@@ -117,36 +121,26 @@ public class OsledAI : MonoBehaviour
             gotoammoo = true;
             gotoammo();
         }
+        // start the IEnomunator if a specific bool is set to true or false
         if (  escapeandfire == true)
         {
           
             cannons.__FireFront(4);
           
         }
-        /*if (currentHealth <= 0)
-        {
-            //gameObject.tag = "Destroyed";
-            movespeed = 0f;
-            rotspeed = 0f;
-            moveforce = 0f;
-            RotationSpeed = 0f;
-            particles.Play();
-
-
-        }*/
+       
         if (ischeck == false)
         {
             StartCoroutine(check());
-            // StartCoroutine(__TurnLookoutRight(90));
+            
         }
       
 
-
+        // every time the hit ray cast sees an object infront of it like wall or rocks, it will avoid it on a random value , where it choses to go left or right or 180 degrees
        rb.velocity = moved * moveforce;
         if (Physics.Raycast(transform.position, transform.forward, maxdis, hmm))
         {
-            // moved = chose();
-           // transform.rotation = Quaternion.LookRotation(moved);
+         
             int rotLorR = Random.Range(0,2 );
             
             if (rotLorR == 0)
@@ -163,6 +157,8 @@ public class OsledAI : MonoBehaviour
 
 
         }
+
+        // states of the AI. The AI on defult starts with wandering then in the IEnoumenator, it has a range value to randomly select where to wants to go next and wither if it should rotate or not
         if (iswalk == false )
         {
             StartCoroutine(wandr());
@@ -179,17 +175,17 @@ public class OsledAI : MonoBehaviour
         {
             transform.position += transform.forward * movespeed * Time.deltaTime;
         }
+        // insuring that the health doesnt go above 100
         if (currentHealth > 100)
         {
            
             currentHealth = 100;
           
 
-            //  healthBar.SetHealth(100);
 
         }
     }
-
+    // the void funtion below checks if the health is low and what is the situation of the navmesh then moves to a health bottle if avilable other wise it will be wandering
     void setdis()
     {
         if (gotohealth == true && (items[1].activeSelf ==true || items[3].activeSelf == true))
@@ -213,6 +209,7 @@ public class OsledAI : MonoBehaviour
 
 
     }
+    // the void funtion below checks if the health is low and what is the situation of the navmesh then moves to a ammo chest if avilable other wise it will be wandering
     void gotoammo()
     {
         if (gotoammoo == true &&(items[0].activeSelf == true || items[2].activeSelf == true))
@@ -232,7 +229,7 @@ public class OsledAI : MonoBehaviour
 
 
     }
-
+    // chose, is where the AI choses wither to rotate or not accourding to range randomizer
     Vector3 chose()
     {
         System.Random ran = new System.Random();
@@ -246,9 +243,7 @@ public class OsledAI : MonoBehaviour
                 Teep = transform.right;
                 transform.Rotate(transform.up * Time.deltaTime * rotspeed);
             }
-            // Teep = transform.forward;
-            //  Teep = transform.right;
-            // transform.Rotate(transform.up * Time.deltaTime * rotspeed);
+          
         }
         else if (i == 1)
         {
@@ -259,7 +254,7 @@ public class OsledAI : MonoBehaviour
             }
 
 
-            // Teep = -transform.forward;
+            
         }
    
 
@@ -269,6 +264,7 @@ public class OsledAI : MonoBehaviour
 
 
     }
+    // check is a checker for wither the ship should rotate or not and wait for a specific amount of seconds based on range 
     IEnumerator check()
     {
         int lookingRorL = Random.Range(1, 3);
@@ -288,7 +284,7 @@ public class OsledAI : MonoBehaviour
             ischeckR = true;
             if (ischeckR == true)
             {
-                // StartCoroutine(check());
+               
                 StartCoroutine(__TurnLookoutRight(90));
                 ischeckL = false;
             }
@@ -301,15 +297,16 @@ public class OsledAI : MonoBehaviour
             ischeckL = true;
             if (ischeckL == true)
             {
-                // StartCoroutine(check());
+               
                 StartCoroutine(__TurnLookoutLeft(90));
                 ischeckR = false;
             }
             yield return new WaitForSeconds(looktime);
-            // ischeckL = false;
+           
         }
         iswand = false;
     }
+    //wander is the defult state where the ship randomly selects where to go and how it should move
     IEnumerator wandr()
     {
         int rotime = Random.Range(1, 3);
@@ -319,7 +316,7 @@ public class OsledAI : MonoBehaviour
         int Walktime = Random.Range(1, 5);
 
         iswand = true;
-
+        // the shit waits for few seconds then disable walk to allow rotation
         yield return new WaitForSeconds(walkwait);
         iswalk = true;
         yield return new WaitForSeconds(Walktime);
@@ -341,6 +338,8 @@ public class OsledAI : MonoBehaviour
         iswand = false;
         yield return new WaitForFixedUpdate();
     }
+
+    // based on Ilias AI script turnlooks are used. However, the are called in update in lookoutscript 
     public IEnumerator __TurnLookoutLeft(float angle)
     {
 
@@ -368,6 +367,7 @@ public class OsledAI : MonoBehaviour
         }
 
     }
+    //take damage function, is activated on trigger enter and sets how much damage a ship can take
     void TakeDamage(int damage)
     {
         currentHealth += damage;
@@ -382,10 +382,11 @@ public class OsledAI : MonoBehaviour
             sails[1].SetActive(true);
             sails[2].SetActive(true);
             particles.Stop();
-            //  healthBar.SetHealth(100);
+          
 
         }
     }
+    // triggers for the ship that would case it to take damage, heal or refill ammo
 
     void OnTriggerEnter(Collider other)
     {

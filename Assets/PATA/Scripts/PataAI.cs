@@ -42,6 +42,13 @@ public class PataAI : MonoBehaviour
 
     public GameObject self;
 
+
+
+  
+    public int Jeroenkill;
+    public int Osledkill;
+    public int kill;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -110,6 +117,10 @@ public class PataAI : MonoBehaviour
             StartCoroutine(__Idle());
             StartCoroutine(__Attack());
             StartCoroutine(__RunAway());
+        if (currentHeath > 100)
+        {
+            currentHeath = 100;
+        }
     }
 
     void HealthCounter(int num)
@@ -137,6 +148,15 @@ public class PataAI : MonoBehaviour
         else if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)")
         {
             HealthCounter(-20);
+        }
+
+        if ((col.gameObject.name == "OsledCannonBall(Clone)" || col.gameObject.name == "OsledShip(Clone)") && currentHeath <= 20)
+        {
+            Osledkill += 1;
+        }
+        if ((col.gameObject.tag == "JeroenCannonBall(Clone)" || col.gameObject.name == "JeroenShip(Clone)") && currentHeath <= 20)
+        {
+            Jeroenkill += 1;
         }
     }
 
