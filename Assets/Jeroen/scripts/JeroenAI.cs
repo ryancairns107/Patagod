@@ -27,6 +27,9 @@ public class JeroenAI : MonoBehaviour
     public GameObject ammoPickup = null;
     public bool hasDestination = false;
     public int deaths = 0;
+    private bool isRotating = false;
+    private bool terrainAvoidance = false;
+    public LayerMask Rocks;
 
     private void Start()
     {
@@ -52,18 +55,15 @@ public class JeroenAI : MonoBehaviour
         }
         if (TargetShip == null)
         {
-            if (ammoPickup != null)
+            if (ammoPickup != null && ammoPickup.activeSelf)
             {
                 navAgent.isStopped = false;
                 navAgent.destination = ammoPickup.transform.position;
-            } else if (healthPickup != null)
-            {
-                navAgent.isStopped = false;
-                navAgent.destination = healthPickup.transform.position;
-            }
+            } 
             else
             {
                 navAgent.isStopped = true;
+                navAgent.destination = gameObject.transform.position;
             }
         }
         if (TargetShip != null)
@@ -73,7 +73,6 @@ public class JeroenAI : MonoBehaviour
             desiredRotation = Quaternion.LookRotation(posRelative);
             Vector3 heading = TargetShip.transform.position - transform.position;
             angle = AngleTowards(transform.forward, heading, transform.up);
-            Debug.Log(angle);
             if (distanceToTarget <= 250)
             {
                 navAgent.isStopped = true;
@@ -129,6 +128,7 @@ public class JeroenAI : MonoBehaviour
             else
             {
                 navAgent.isStopped = true;
+                navAgent.destination = gameObject.transform.position;
             }
         }
         if (currentHP > 100)
@@ -137,10 +137,24 @@ public class JeroenAI : MonoBehaviour
         } else if (currentHP <= 0)
         {
             currentHP = 100;
+            deaths += 1;
         }
         if (navAgent.isStopped == true)
         {
             transform.position += transform.forward * movementSpeed * Time.deltaTime;
+            if (navAgent.isStopped == true && TargetShip == null)
+            {  
+                StartCoroutine(rotateIdle());
+                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 2f * Time.deltaTime);
+            }
+        } else
+        {
+            StopCoroutine(rotateIdle());
+        }
+        if (Physics.Raycast(transform.position, transform.forward, 100, Rocks))
+        {
+            StartCoroutine(terrainEncounter());
+            Debug.Log("terrain detected");
         }
     }
     private void Damaged(int damage)
@@ -215,10 +229,48 @@ public class JeroenAI : MonoBehaviour
         yield return new WaitForSeconds(3);
         canShoot = true;
     }
-    public IEnumerator rotateLeft()
+    public IEnumerator rotateIdle()
     {
-        
-        yield return new WaitForSeconds(3);
-        canShoot = true;
+        if(isRotating == false )
+        {
+            desiredRotation = transform.rotation;
+            isRotating = true;
+            int rotNum = Random.Range(0, 2);
+            if (rotNum == 0 && TargetShip == null)
+            {
+                desiredRotation *= Quaternion.Euler(0, -90, 0);
+                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 2f * Time.deltaTime);
+                Debug.Log("rotating");
+            }
+            else if (rotNum == 1 && TargetShip == null)
+            {
+                desiredRotation *= Quaternion.Euler(0, 90, 0);
+               transform.rotation =  Quaternion.Lerp(transform.rotation, desiredRotation, 2f * Time.deltaTime);
+                Debug.Log("rotating");
+            }
+            yield return new WaitForSeconds(5f);
+            isRotating = false;
+        }
+    }
+    public IEnumerator terrainEncounter()
+    {
+        if (terrainAvoidance == false)
+        {
+            desiredRotation = transform.rotation;
+            terrainAvoidance = true;
+            int rotNum = Random.Range(0, 2);
+            if (rotNum == 0 && TargetShip == null)
+            {
+                desiredRotation *= Quaternion.Euler(0, -90, 0);
+                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 2f * Time.deltaTime);
+            }
+            else if (rotNum == 1 && TargetShip == null)
+            {
+                desiredRotation *= Quaternion.Euler(0, 90, 0);
+                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 2f * Time.deltaTime);
+            }
+            yield return new WaitForSeconds(3f);
+            terrainAvoidance = false;
+        }
     }
 }

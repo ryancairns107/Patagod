@@ -959,6 +959,9 @@ MonoBehaviour:
   ammoPickup: {fileID: 0}
   hasDestination: 0
   deaths: 0
+  Rocks:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!198 &7656282176022534005
 ParticleSystem:
   m_ObjectHideFlags: 0
