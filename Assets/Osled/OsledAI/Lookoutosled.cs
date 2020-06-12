@@ -26,7 +26,7 @@ public class Lookoutosled : MonoBehaviour
 
 
     // private bool checkR;
-
+    // on start animation data is collicated
     void Start()
     {
         anim[0] = canon[0].GetComponent<Animator>();
@@ -43,18 +43,14 @@ public class Lookoutosled : MonoBehaviour
         anim[11] = canon[11].GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    // on fixed update, it checks for how many rounds the ship has and fires on a cooldown
     void FixedUpdate()
     {
         
-        //cam = GameObject.Find("Bk cam");
-        // sidecam = GameObject.Find("cam");
-        if (cannons == 50f)
-        {
-            
-        }
+   
+     // the ship checks whats the exact rotation of the lookout 
         ischeck = lookout.GetComponent<Transform>().localRotation.eulerAngles.y;
-
+        // the if statement checks what can the ship see, then reacts to either shot or move depending on how many rounds the ship has
         if (rounds >= maxrounds)
         {
             shoot = false;
@@ -77,6 +73,7 @@ public class Lookoutosled : MonoBehaviour
         {
            // __FireLeft(1);
             StartCoroutine(__FireLeft(0));
+            // ship loses cannons on every fired shot and checks the angle before firing to allow the ship to fire from certain diraction
             cannons -= 1;
         }
         if (shoot == false)
@@ -99,6 +96,7 @@ public class Lookoutosled : MonoBehaviour
          
             
         }
+        // when the ship fires it runs animation and activates one of the cameras 
         anim[0].SetBool("Shoot", true); 
         anim[1].SetBool("Shoot", true); 
         anim[2].SetBool("Shoot", true); 
@@ -118,7 +116,7 @@ public class Lookoutosled : MonoBehaviour
     public IEnumerator __FireLeft(float power)
     {
         GameObject newInstance = Instantiate(CannonBallPrefab, CannonLeftSpawnPoint.position, CannonLeftSpawnPoint.rotation);
-        CannonBallPrefab.name = "OsledCannon";
+        //CannonBallPrefab.name = "OsledCannon";
         anim[4].SetBool("Shoot", true);
         anim[5].SetBool("Shoot", true);
         anim[6].SetBool("Shoot", true);
@@ -137,7 +135,7 @@ public class Lookoutosled : MonoBehaviour
     public IEnumerator __FireRight(float power)
     {
         GameObject newInstance = Instantiate(CannonBallPrefab, CannonRightSpawnPoint.position, CannonRightSpawnPoint.rotation);
-        CannonBallPrefab.name = "OsledCannon";
+        //CannonBallPrefab.name = "OsledCannon";
         anim[8].SetBool("Shoot", true);
         anim[9].SetBool("Shoot", true);
         anim[10].SetBool("Shoot", true);
@@ -156,6 +154,7 @@ public class Lookoutosled : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //checks if it colides with ship to start to shoot
         if (other.gameObject.tag == "Boatbody")
         {
             if(cannons>=1)

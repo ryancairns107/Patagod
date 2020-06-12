@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class shiphealth : MonoBehaviour
 {
+	// ship health applies the values of the health of the ship to the sliders so it will be visualized
 
 	public Slider slider;
 	public Gradient gradient;
@@ -13,11 +14,13 @@ public class shiphealth : MonoBehaviour
 	public float health;
      void Update()
     {
+		
 		health = slider.value;
 
 	}
     public void SetMaxHealth(int health)
 	{
+		// sets the health of the ship into the slider and change the health color based on the fradient created
 		slider.maxValue = health;
 		slider.minValue = 0;
 		slider.value = startvalue;

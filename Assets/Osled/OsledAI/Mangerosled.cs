@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngineInternal;
 
 public class Mangerosled : MonoBehaviour
 {
@@ -48,6 +48,7 @@ public class Mangerosled : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Spawner based on the original set defualt spawner 
         // board= GameObject.Find("CompetitionManager/Canvas");
         GameObject pirateShip = Instantiate(PirateShipPrefab[0], SpawnPoints[0].position, SpawnPoints[0].rotation);
         GameObject pirateShip2 = Instantiate(PirateShipPrefab[1], SpawnPoints[1].position, SpawnPoints[1].rotation);
@@ -55,12 +56,12 @@ public class Mangerosled : MonoBehaviour
 
        
      
-      //  healthBar3 = GameObject.Find("RyanShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
+     
 
     }
     void Update()
     {
-       
+       // game stops and shows leaderboard
         if (GameTimer <= 0)
         {
             
@@ -69,15 +70,17 @@ public class Mangerosled : MonoBehaviour
             
 
         }
+        // runs kill and end game script to input kills and death values
         Endgame();
         killing();
         healthBar = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
         healthBar1 = GameObject.Find("PataShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
         healthBar2 = GameObject.Find("JeroenShip(Clone)/PirateShip(Clone)/Canvas/Health").GetComponent<shiphealth>();
+        // gets the health of the AIs 
        Osledhealth = healthBar.health;
        Patahealth = healthBar1.health;
        Jeroenhealth = healthBar2.health;
-
+        // checks the AIs health and respawn on death and reset their health and cannons
         if (Osledhealth <= 0)
         {
             int I = Random.Range(0,3);
@@ -114,8 +117,10 @@ public class Mangerosled : MonoBehaviour
 
     }
     // Update is called once per frame
+
     void FixedUpdate()
     {
+        //change camera with a timer
         if (camTimer <=0)
         {
             
@@ -134,6 +139,7 @@ public class Mangerosled : MonoBehaviour
            
            
         }
+        // set active timer
         camTimer -= Time.deltaTime;
         textbox = GameObject.Find("Canvas/Timer").GetComponent<Text>();
         GameTimer -=Time.deltaTime;
@@ -148,14 +154,16 @@ public class Mangerosled : MonoBehaviour
     }
     void Endgame()
     {
-        Patakill = GameObject.Find("OsledShip(Clone)").GetComponent<OsledAI>().Patakill;
-        Jeroenkill = GameObject.Find("OsledShip(Clone)").GetComponent<OsledAI>().Jeroenkill;
+        // calculate death and kills from all the AI scripts and displays them on the leader board
+        Patakill = GameObject.Find("OsledShip(Clone)").GetComponent<OsledAI>().Patakill + GameObject.Find("OsledShip(Clone)").GetComponent<JeroenAI>().PataKills;
+        Jeroenkill = GameObject.Find("OsledShip(Clone)").GetComponent<OsledAI>().Jeroenkill+ GameObject.Find("PataShip(Clone)").GetComponent<PataAI>().Jeroenkill;
+        Osledkill = GameObject.Find("PataShip(Clone)").GetComponent<PataAI>().Osledkill + GameObject.Find("PataShip(Clone)").GetComponent<JeroenAI>().OsledKills;
 
         OsledDeaths = all[0].GetComponent<Text>();
             OsledKills = all[1].GetComponent<Text>();
 
             OsledDeaths.text = "" + OsledDeath;
-            OsledKills.text = "" ;
+            OsledKills.text = "" +Osledkill;
 
             PataDeaths = all[2].GetComponent<Text>();
             PataKills = all[3].GetComponent<Text>();
