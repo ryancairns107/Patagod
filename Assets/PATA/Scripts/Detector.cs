@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class Detector : MonoBehaviour
 {
-   /* public GameObject self;
-    public bool rotated;
+    public PataAI AIscript;
 
-    void Start()
+    void FixedUpdate()
     {
-        self = GameObject.Find("PataShip(Clone)");
+        AIscript = GameObject.Find("PataShip(Clone)").GetComponent<PataAI>();
     }
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Rock") && rotated == false)
+        if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)")
         {
-            self.transform.Rotate(0.0f, +90.0f, 0.0f, Space.Self);
-            Debug.Log("PATA LOOK AT ME, I ROTATED");
-            rotated = true;
+            AIscript.rotateAway = true;
+
         }
-    }*/
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if (col.CompareTag("Boatbody") && col.name != "PataShip(Clone)")
+        {
+            AIscript.rotateAway = false;
+        }
+    }
 }
