@@ -35,6 +35,11 @@ public class PataLookout : MonoBehaviour
             doItOnce = true;
             AIscript.resetIdle = true;
         }
+        else if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)" && doItOnce == true)
+        {
+            AIscript.resetIdle = false;
+            doItOnce = false;
+        }
     }
 
     void OnTriggerExit(Collider col)
@@ -51,11 +56,7 @@ public class PataLookout : MonoBehaviour
         {
             AIscript.defendRight = false;
         }
-        else if (col.CompareTag("canon") && col.name != "PataCannonBall(Clone)" && doItOnce == true)
-        {
-            AIscript.resetIdle = false;
-            doItOnce = false;
-        }
+
     }
 
 }
