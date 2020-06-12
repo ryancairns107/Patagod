@@ -42,7 +42,6 @@ public class JeroenAI : MonoBehaviour
     }
     void Update()
     {
-        healthBar.health = currentHP;
         healthPickup = GameObject.FindWithTag("Health");
         ammoPickup = GameObject.FindWithTag("Ammo");
         if (Targets != null && Targets.Count > 0)
@@ -73,7 +72,7 @@ public class JeroenAI : MonoBehaviour
             desiredRotation = Quaternion.LookRotation(posRelative);
             Vector3 heading = TargetShip.transform.position - transform.position;
             angle = AngleTowards(transform.forward, heading, transform.up);
-            if (distanceToTarget <= 250)
+            if (distanceToTarget <= 250 && navAgent.isStopped == false)
             {
                 navAgent.isStopped = true;
                 navAgent.destination = gameObject.transform.position;
@@ -115,13 +114,15 @@ public class JeroenAI : MonoBehaviour
         }
         if (cannonAmmo <= 5 || currentHP <= 40)
         {
-            if (cannonAmmo <= 5 && ammoPickup != null)
+            if (cannonAmmo <= 5 && ammoPickup != null && TargetShip != null)
             {
+                TargetShip = null;
                 navAgent.isStopped = false;
                 navAgent.destination = ammoPickup.transform.position;
             }
             else if (currentHP <= 40 && healthPickup != null)
             {
+                TargetShip = null;
                 navAgent.isStopped = false;
                 navAgent.destination = healthPickup.transform.position;
             }
@@ -134,7 +135,8 @@ public class JeroenAI : MonoBehaviour
         if (currentHP > 100)
         {
             currentHP = 100;
-        } else if (currentHP <= 0)
+        }
+        else if (currentHP <= 0)
         {
             currentHP = 100;
             deaths += 1;
@@ -167,12 +169,12 @@ public class JeroenAI : MonoBehaviour
     {
         if (other.gameObject.tag == "wall") 
         {
-            desiredRotation = transform.rotation *= Quaternion.Euler(0, -180, 0);
-            transform.rotation = desiredRotation;
+            transform.rotation *= Quaternion.Euler(0, -180, 0);
         }
         if (other.gameObject.tag == "canon" || other.gameObject.tag == "Boatbody" && other.gameObject != this)
         {
             Damaged(ballDamage);
+            healthBar.SetHealth(currentHP);
             Debug.Log("Ship Damaged!!!");
         }
         if (other.gameObject.tag == "Ammo")

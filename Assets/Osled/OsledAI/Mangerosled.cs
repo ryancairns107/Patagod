@@ -26,7 +26,9 @@ public class Mangerosled : MonoBehaviour
     public int Jeroenkill;
 
     public float GameTimer;
+    public float camTimer;
     public GameObject board;
+    
     public bool canrespawn;
     public Text textbox;
     public Text OsledDeaths;
@@ -38,8 +40,9 @@ public class Mangerosled : MonoBehaviour
     public Text JeroenDeahts;
     public Text JeroenKills;
     public GameObject[] all;
-    
 
+    public GameObject cam;
+    public GameObject cam2;
 
 
     // Start is called before the first frame update
@@ -57,6 +60,7 @@ public class Mangerosled : MonoBehaviour
     }
     void Update()
     {
+       
         if (GameTimer <= 0)
         {
             
@@ -112,8 +116,26 @@ public class Mangerosled : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-        textbox = GameObject.Find("Main Camera/Canvas/Timer").GetComponent<Text>();
+        if (camTimer <=0)
+        {
+            
+            camTimer = 20;
+        }
+        if (camTimer >= 6)
+        {
+            cam2.SetActive(false);
+            cam.SetActive(true);
+
+        }
+        if (camTimer <=5 && camTimer >=1)
+        {
+            cam.SetActive(false);
+            cam2.SetActive(true);
+           
+           
+        }
+        camTimer -= Time.deltaTime;
+        textbox = GameObject.Find("Canvas/Timer").GetComponent<Text>();
         GameTimer -=Time.deltaTime;
         textbox.text = "Timer"+"  " + Mathf.Round(GameTimer) + "  S" ;
   

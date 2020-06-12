@@ -74,7 +74,20 @@ public class OsledAI : MonoBehaviour
     }
     void Update()
     {
-        
+
+        if (currentHealth <= 80f&& currentHealth >= 60f)
+        {
+            sails[0].SetActive(false);
+        }
+        if (currentHealth <= 59f && currentHealth >= 40f)
+        {
+            sails[1].SetActive(false);
+        }
+        if (currentHealth <= 39f)
+        {
+            particles.Play();
+            sails[2].SetActive(false);
+        }
         cannons = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Lookout/Sphere").GetComponent<Lookoutosled>();
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
         textdeath = GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Canvas/death/deathcount").GetComponent<Text>();
@@ -259,7 +272,7 @@ public class OsledAI : MonoBehaviour
     IEnumerator check()
     {
         int lookingRorL = Random.Range(1, 3);
-        int lookwait = Random.Range(3, 10);
+        int lookwait = Random.Range(1, 5);
         int looktime = Random.Range(1, 5);
 
         ischeck = true;
@@ -365,7 +378,10 @@ public class OsledAI : MonoBehaviour
             GameObject.Find("OsledShip(Clone)/PirateShip(Clone)/Lookout/Sphere").GetComponent<Lookoutosled>().cannons = 20;
             currentHealth = 100;
             death += 1;
-            
+            sails[0].SetActive(true);
+            sails[1].SetActive(true);
+            sails[2].SetActive(true);
+            particles.Stop();
             //  healthBar.SetHealth(100);
 
         }
